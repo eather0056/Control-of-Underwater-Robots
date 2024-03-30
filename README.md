@@ -67,11 +67,11 @@ For compatibility, modify the `OverrideRCIn.msg` in `~/catkin_ws/src/mavros/mavr
 Results from each experiment, including plots and observations, are located in the `results` folder. The data includes depth and yaw control responses, robustness to disturbances, and the effectiveness of the alpha-beta filter.
 <div style="display:flex;">
   <figure style="margin-right: 20px;">
-    <img src="catkin_ws/Result/q7_graph.png" width="300">
+    <img src="Documents/Result/q7_graph.png" width="300">
     <figcaption>Figure 1: PI Controller for depth and floatability compensation.</figcaption>
   </figure>
   <figure>
-    <img src="catkin_ws/Result/pidcontrol.png" width="300">
+    <img src="Documents/Result/pidcontrol.png" width="300">
     <figcaption>Figure 2: PID Controllers with Floatability Compensation.</figcaption>
   </figure>
 </div>
@@ -102,5 +102,5 @@ This project is open-source and available under the [MIT License](LICENSE).
   - Prof. Vincent Creuze
 
 <div style="display:flex;">
-    <img src="catkin_ws/Result/IMG_7489.jpg">
+    <img src="Documents/Result/IMG_7489.jpg">
 </div>

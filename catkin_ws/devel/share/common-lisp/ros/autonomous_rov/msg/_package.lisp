@@ -1,0 +1,1 @@
+/home/ether/catkin_ws/devel/.private/autonomous_rov/share/common-lisp/ros/autonomous_rov/msg/_package.lisp

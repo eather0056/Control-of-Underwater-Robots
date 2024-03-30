@@ -62,7 +62,7 @@
 (defmethod mavros_msgs::FileListResponse
   (:init
    (&key
-    ((:list __list) (let (r) (dotimes (i 0) (push (instance mavros_msgs::FileEntry :init) r)) r))
+    ((:list __list) ())
     ((:success __success) nil)
     ((:r_errno __r_errno) 0)
     )
@@ -79,8 +79,8 @@
        (if __list (setq _list (car __list)))
        _list)))
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:r_errno
    (&optional __r_errno)
    (if __r_errno (setq _r_errno __r_errno)) _r_errno)

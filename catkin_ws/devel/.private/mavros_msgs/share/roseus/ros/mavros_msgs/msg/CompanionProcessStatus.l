@@ -47,6 +47,22 @@
 (intern "*MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY*" (find-package "MAVROS_MSGS::COMPANIONPROCESSSTATUS"))
 (shadow '*MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY* (find-package "MAVROS_MSGS::COMPANIONPROCESSSTATUS"))
 (defconstant mavros_msgs::CompanionProcessStatus::*MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY* 197)
+
+(defun mavros_msgs::CompanionProcessStatus-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::CompanionProcessStatus::*MAV_STATE_UNINIT*)
+        ((= const 1) 'mavros_msgs::CompanionProcessStatus::*MAV_STATE_BOOT*)
+        ((= const 2) 'mavros_msgs::CompanionProcessStatus::*MAV_STATE_CALIBRATING*)
+        ((= const 3) 'mavros_msgs::CompanionProcessStatus::*MAV_STATE_STANDBY*)
+        ((= const 4) 'mavros_msgs::CompanionProcessStatus::*MAV_STATE_ACTIVE*)
+        ((= const 5) 'mavros_msgs::CompanionProcessStatus::*MAV_STATE_CRITICAL*)
+        ((= const 6) 'mavros_msgs::CompanionProcessStatus::*MAV_STATE_EMERGENCY*)
+        ((= const 7) 'mavros_msgs::CompanionProcessStatus::*MAV_STATE_POWEROFF*)
+        ((= const 8) 'mavros_msgs::CompanionProcessStatus::*MAV_STATE_FLIGHT_TERMINATION*)
+        ((= const 196) 'mavros_msgs::CompanionProcessStatus::*MAV_COMP_ID_OBSTACLE_AVOIDANCE*)
+        ((= const 197) 'mavros_msgs::CompanionProcessStatus::*MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY*)
+        (t nil)))
+
 (defclass mavros_msgs::CompanionProcessStatus
   :super ros::object
   :slots (_header _state _component ))

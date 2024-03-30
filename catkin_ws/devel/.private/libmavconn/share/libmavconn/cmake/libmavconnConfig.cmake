@@ -67,14 +67,14 @@ set(libmavconn_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(libmavconn_SOURCE_PREFIX /home/ether/catkin_ws/src/mavros_mavlink/mavros/libmavconn)
-  set(libmavconn_DEVEL_PREFIX /home/ether/catkin_ws/devel/.private/libmavconn)
+  set(libmavconn_SOURCE_PREFIX /home/tihan/catkin_ws/src/mavros_mavlink/mavros/libmavconn)
+  set(libmavconn_DEVEL_PREFIX /home/tihan/catkin_ws/devel/.private/libmavconn)
   set(libmavconn_INSTALL_PREFIX "")
   set(libmavconn_PREFIX ${libmavconn_DEVEL_PREFIX})
 else()
   set(libmavconn_SOURCE_PREFIX "")
   set(libmavconn_DEVEL_PREFIX "")
-  set(libmavconn_INSTALL_PREFIX /home/ether/catkin_ws/install)
+  set(libmavconn_INSTALL_PREFIX /home/tihan/catkin_ws/install)
   set(libmavconn_PREFIX ${libmavconn_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(libmavconn_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/ether/catkin_ws/src/mavros_mavlink/mavros/libmavconn/include;/usr/include;/home/ether/catkin_ws/devel/include " STREQUAL " ")
+if(NOT "/home/tihan/catkin_ws/src/mavros_mavlink/mavros/libmavconn/include;/usr/include;/home/tihan/catkin_ws/devel/include " STREQUAL " ")
   set(libmavconn_INCLUDE_DIRS "")
-  set(_include_dirs "/home/ether/catkin_ws/src/mavros_mavlink/mavros/libmavconn/include;/usr/include;/home/ether/catkin_ws/devel/include")
+  set(_include_dirs "/home/tihan/catkin_ws/src/mavros_mavlink/mavros/libmavconn/include;/usr/include;/home/tihan/catkin_ws/devel/include")
   if(NOT "https://github.com/mavlink/mavros/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/mavlink/mavros/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://wiki.ros.org/mavros " STREQUAL " ")
@@ -110,13 +110,13 @@ if(NOT "/home/ether/catkin_ws/src/mavros_mavlink/mavros/libmavconn/include;/usr/
         message(FATAL_ERROR "Project 'libmavconn' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'libmavconn' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ether/catkin_ws/src/mavros_mavlink/mavros/libmavconn/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'libmavconn' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/tihan/catkin_ws/src/mavros_mavlink/mavros/libmavconn/${idir}'.  ${_report}")
     endif()
     _list_append_unique(libmavconn_INCLUDE_DIRS ${include})
   endforeach()
 endif()
 
-set(libraries "mavconn;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4")
+set(libraries "mavconn;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ether/catkin_ws/devel/.private/libmavconn/lib;/home/ether/catkin_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/tihan/catkin_ws/devel/.private/libmavconn/lib;/home/tihan/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(libmavconn_LIBRARIES ${libmavconn_LIBRARIES})
 
   _list_append_unique(libmavconn_LIBRARY_DIRS ${${libmavconn_dep}_LIBRARY_DIRS})
-  list(APPEND libmavconn_EXPORTED_TARGETS ${${libmavconn_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(libmavconn_EXPORTED_TARGETS ${${libmavconn_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "libmavconn-extras.cmake")

@@ -233,16 +233,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::mavros_msgs::PositionTarget_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::mavros_msgs::PositionTarget_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::mavros_msgs::PositionTarget_<ContainerAllocator> >
   : TrueType
   { };
@@ -250,6 +240,16 @@ struct IsMessage< ::mavros_msgs::PositionTarget_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::mavros_msgs::PositionTarget_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::mavros_msgs::PositionTarget_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::mavros_msgs::PositionTarget_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

@@ -81,8 +81,8 @@
    (setq _result (round __result))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:result
    (&optional __result)
    (if __result (setq _result __result)) _result)

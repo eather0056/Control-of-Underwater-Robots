@@ -78,6 +78,33 @@
 (intern "*FRAME_LOCAL_FLU*" (find-package "MAVROS_MSGS::WAYPOINT"))
 (shadow '*FRAME_LOCAL_FLU* (find-package "MAVROS_MSGS::WAYPOINT"))
 (defconstant mavros_msgs::Waypoint::*FRAME_LOCAL_FLU* 21)
+
+(defun mavros_msgs::Waypoint-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::Waypoint::*FRAME_GLOBAL*)
+        ((= const 1) 'mavros_msgs::Waypoint::*FRAME_LOCAL_NED*)
+        ((= const 2) 'mavros_msgs::Waypoint::*FRAME_MISSION*)
+        ((= const 3) 'mavros_msgs::Waypoint::*FRAME_GLOBAL_REL_ALT*)
+        ((= const 4) 'mavros_msgs::Waypoint::*FRAME_LOCAL_ENU*)
+        ((= const 5) 'mavros_msgs::Waypoint::*FRAME_GLOBAL_INT*)
+        ((= const 6) 'mavros_msgs::Waypoint::*FRAME_GLOBAL_RELATIVE_ALT_INT*)
+        ((= const 7) 'mavros_msgs::Waypoint::*FRAME_LOCAL_OFFSET_NED*)
+        ((= const 8) 'mavros_msgs::Waypoint::*FRAME_BODY_NED*)
+        ((= const 9) 'mavros_msgs::Waypoint::*FRAME_BODY_OFFSET_NED*)
+        ((= const 10) 'mavros_msgs::Waypoint::*FRAME_GLOBAL_TERRAIN_ALT*)
+        ((= const 11) 'mavros_msgs::Waypoint::*FRAME_GLOBAL_TERRAIN_ALT_INT*)
+        ((= const 12) 'mavros_msgs::Waypoint::*FRAME_BODY_FRD*)
+        ((= const 13) 'mavros_msgs::Waypoint::*FRAME_RESERVED_13*)
+        ((= const 14) 'mavros_msgs::Waypoint::*FRAME_RESERVED_14*)
+        ((= const 15) 'mavros_msgs::Waypoint::*FRAME_RESERVED_15*)
+        ((= const 16) 'mavros_msgs::Waypoint::*FRAME_RESERVED_16*)
+        ((= const 17) 'mavros_msgs::Waypoint::*FRAME_RESERVED_17*)
+        ((= const 18) 'mavros_msgs::Waypoint::*FRAME_RESERVED_18*)
+        ((= const 19) 'mavros_msgs::Waypoint::*FRAME_RESERVED_19*)
+        ((= const 20) 'mavros_msgs::Waypoint::*FRAME_LOCAL_FRD*)
+        ((= const 21) 'mavros_msgs::Waypoint::*FRAME_LOCAL_FLU*)
+        (t nil)))
+
 (defclass mavros_msgs::Waypoint
   :super ros::object
   :slots (_frame _command _is_current _autocontinue _param1 _param2 _param3 _param4 _x_lat _y_long _z_alt ))
@@ -117,11 +144,11 @@
    (&optional __command)
    (if __command (setq _command __command)) _command)
   (:is_current
-   (&optional __is_current)
-   (if __is_current (setq _is_current __is_current)) _is_current)
+   (&optional (__is_current :null))
+   (if (not (eq __is_current :null)) (setq _is_current __is_current)) _is_current)
   (:autocontinue
-   (&optional __autocontinue)
-   (if __autocontinue (setq _autocontinue __autocontinue)) _autocontinue)
+   (&optional (__autocontinue :null))
+   (if (not (eq __autocontinue :null)) (setq _autocontinue __autocontinue)) _autocontinue)
   (:param1
    (&optional __param1)
    (if __param1 (setq _param1 __param1)) _param1)

@@ -7,9 +7,9 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/ether/catkin_ws/devel/.private/mavros:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/ether/catkin_ws/devel/.private/mavros/lib:$LD_LIBRARY_PATH"
-export PWD='/home/ether/catkin_ws/build/mavros'
-export PYTHONPATH="/home/ether/catkin_ws/devel/.private/mavros/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/ether/catkin_ws/devel/.private/mavros/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/ether/catkin_ws/src/mavros_mavlink/mavros/mavros:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/tihan/catkin_ws/devel/.private/mavros:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/tihan/catkin_ws/devel/.private/mavros/lib:$LD_LIBRARY_PATH"
+export PWD='/home/tihan/catkin_ws/build/mavros'
+export PYTHONPATH="/home/tihan/catkin_ws/devel/.private/mavros/lib/python3/dist-packages:$PYTHONPATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/tihan/catkin_ws/devel/.private/mavros/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/tihan/catkin_ws/src/mavros_mavlink/mavros/mavros:$ROS_PACKAGE_PATH"

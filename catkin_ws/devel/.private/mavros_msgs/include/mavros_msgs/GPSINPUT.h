@@ -254,16 +254,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::mavros_msgs::GPSINPUT_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::mavros_msgs::GPSINPUT_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::mavros_msgs::GPSINPUT_<ContainerAllocator> >
   : TrueType
   { };
@@ -271,6 +261,16 @@ struct IsMessage< ::mavros_msgs::GPSINPUT_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::mavros_msgs::GPSINPUT_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::mavros_msgs::GPSINPUT_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::mavros_msgs::GPSINPUT_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

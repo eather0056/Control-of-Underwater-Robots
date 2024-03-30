@@ -1,1 +1,1 @@
-/home/ether/catkin_ws/devel/.private/autonomous_rov/share/gennodejs/ros/autonomous_rov/msg/Thruster.js
+/home/tihan/catkin_ws/devel/.private/autonomous_rov/share/gennodejs/ros/autonomous_rov/msg/Thruster.js

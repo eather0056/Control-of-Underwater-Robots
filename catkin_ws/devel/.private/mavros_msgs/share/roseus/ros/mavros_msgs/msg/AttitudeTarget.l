@@ -31,6 +31,16 @@
 (intern "*IGNORE_ATTITUDE*" (find-package "MAVROS_MSGS::ATTITUDETARGET"))
 (shadow '*IGNORE_ATTITUDE* (find-package "MAVROS_MSGS::ATTITUDETARGET"))
 (defconstant mavros_msgs::AttitudeTarget::*IGNORE_ATTITUDE* 128)
+
+(defun mavros_msgs::AttitudeTarget-to-symbol (const)
+  (cond
+        ((= const 1) 'mavros_msgs::AttitudeTarget::*IGNORE_ROLL_RATE*)
+        ((= const 2) 'mavros_msgs::AttitudeTarget::*IGNORE_PITCH_RATE*)
+        ((= const 4) 'mavros_msgs::AttitudeTarget::*IGNORE_YAW_RATE*)
+        ((= const 64) 'mavros_msgs::AttitudeTarget::*IGNORE_THRUST*)
+        ((= const 128) 'mavros_msgs::AttitudeTarget::*IGNORE_ATTITUDE*)
+        (t nil)))
+
 (defclass mavros_msgs::AttitudeTarget
   :super ros::object
   :slots (_header _type_mask _orientation _body_rate _thrust ))

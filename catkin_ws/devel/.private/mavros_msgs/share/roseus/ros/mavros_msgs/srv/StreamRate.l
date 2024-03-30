@@ -45,6 +45,20 @@
 (intern "*STREAM_EXTRA3*" (find-package "MAVROS_MSGS::STREAMRATEREQUEST"))
 (shadow '*STREAM_EXTRA3* (find-package "MAVROS_MSGS::STREAMRATEREQUEST"))
 (defconstant mavros_msgs::StreamRateRequest::*STREAM_EXTRA3* 12)
+
+(defun mavros_msgs::StreamRateRequest-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::StreamRateRequest::*STREAM_ALL*)
+        ((= const 1) 'mavros_msgs::StreamRateRequest::*STREAM_RAW_SENSORS*)
+        ((= const 2) 'mavros_msgs::StreamRateRequest::*STREAM_EXTENDED_STATUS*)
+        ((= const 3) 'mavros_msgs::StreamRateRequest::*STREAM_RC_CHANNELS*)
+        ((= const 4) 'mavros_msgs::StreamRateRequest::*STREAM_RAW_CONTROLLER*)
+        ((= const 6) 'mavros_msgs::StreamRateRequest::*STREAM_POSITION*)
+        ((= const 10) 'mavros_msgs::StreamRateRequest::*STREAM_EXTRA1*)
+        ((= const 11) 'mavros_msgs::StreamRateRequest::*STREAM_EXTRA2*)
+        ((= const 12) 'mavros_msgs::StreamRateRequest::*STREAM_EXTRA3*)
+        (t nil)))
+
 (defclass mavros_msgs::StreamRateRequest
   :super ros::object
   :slots (_stream_id _message_rate _on_off ))
@@ -68,8 +82,8 @@
    (&optional __message_rate)
    (if __message_rate (setq _message_rate __message_rate)) _message_rate)
   (:on_off
-   (&optional __on_off)
-   (if __on_off (setq _on_off __on_off)) _on_off)
+   (&optional (__on_off :null))
+   (if (not (eq __on_off :null)) (setq _on_off __on_off)) _on_off)
   (:serialization-length
    ()
    (+

@@ -58,41 +58,41 @@
        (if __header (setq _header (car __header)))
        _header)))
   (:attitude_status_flag
-   (&optional __attitude_status_flag)
-   (if __attitude_status_flag (setq _attitude_status_flag __attitude_status_flag)) _attitude_status_flag)
+   (&optional (__attitude_status_flag :null))
+   (if (not (eq __attitude_status_flag :null)) (setq _attitude_status_flag __attitude_status_flag)) _attitude_status_flag)
   (:velocity_horiz_status_flag
-   (&optional __velocity_horiz_status_flag)
-   (if __velocity_horiz_status_flag (setq _velocity_horiz_status_flag __velocity_horiz_status_flag)) _velocity_horiz_status_flag)
+   (&optional (__velocity_horiz_status_flag :null))
+   (if (not (eq __velocity_horiz_status_flag :null)) (setq _velocity_horiz_status_flag __velocity_horiz_status_flag)) _velocity_horiz_status_flag)
   (:velocity_vert_status_flag
-   (&optional __velocity_vert_status_flag)
-   (if __velocity_vert_status_flag (setq _velocity_vert_status_flag __velocity_vert_status_flag)) _velocity_vert_status_flag)
+   (&optional (__velocity_vert_status_flag :null))
+   (if (not (eq __velocity_vert_status_flag :null)) (setq _velocity_vert_status_flag __velocity_vert_status_flag)) _velocity_vert_status_flag)
   (:pos_horiz_rel_status_flag
-   (&optional __pos_horiz_rel_status_flag)
-   (if __pos_horiz_rel_status_flag (setq _pos_horiz_rel_status_flag __pos_horiz_rel_status_flag)) _pos_horiz_rel_status_flag)
+   (&optional (__pos_horiz_rel_status_flag :null))
+   (if (not (eq __pos_horiz_rel_status_flag :null)) (setq _pos_horiz_rel_status_flag __pos_horiz_rel_status_flag)) _pos_horiz_rel_status_flag)
   (:pos_horiz_abs_status_flag
-   (&optional __pos_horiz_abs_status_flag)
-   (if __pos_horiz_abs_status_flag (setq _pos_horiz_abs_status_flag __pos_horiz_abs_status_flag)) _pos_horiz_abs_status_flag)
+   (&optional (__pos_horiz_abs_status_flag :null))
+   (if (not (eq __pos_horiz_abs_status_flag :null)) (setq _pos_horiz_abs_status_flag __pos_horiz_abs_status_flag)) _pos_horiz_abs_status_flag)
   (:pos_vert_abs_status_flag
-   (&optional __pos_vert_abs_status_flag)
-   (if __pos_vert_abs_status_flag (setq _pos_vert_abs_status_flag __pos_vert_abs_status_flag)) _pos_vert_abs_status_flag)
+   (&optional (__pos_vert_abs_status_flag :null))
+   (if (not (eq __pos_vert_abs_status_flag :null)) (setq _pos_vert_abs_status_flag __pos_vert_abs_status_flag)) _pos_vert_abs_status_flag)
   (:pos_vert_agl_status_flag
-   (&optional __pos_vert_agl_status_flag)
-   (if __pos_vert_agl_status_flag (setq _pos_vert_agl_status_flag __pos_vert_agl_status_flag)) _pos_vert_agl_status_flag)
+   (&optional (__pos_vert_agl_status_flag :null))
+   (if (not (eq __pos_vert_agl_status_flag :null)) (setq _pos_vert_agl_status_flag __pos_vert_agl_status_flag)) _pos_vert_agl_status_flag)
   (:const_pos_mode_status_flag
-   (&optional __const_pos_mode_status_flag)
-   (if __const_pos_mode_status_flag (setq _const_pos_mode_status_flag __const_pos_mode_status_flag)) _const_pos_mode_status_flag)
+   (&optional (__const_pos_mode_status_flag :null))
+   (if (not (eq __const_pos_mode_status_flag :null)) (setq _const_pos_mode_status_flag __const_pos_mode_status_flag)) _const_pos_mode_status_flag)
   (:pred_pos_horiz_rel_status_flag
-   (&optional __pred_pos_horiz_rel_status_flag)
-   (if __pred_pos_horiz_rel_status_flag (setq _pred_pos_horiz_rel_status_flag __pred_pos_horiz_rel_status_flag)) _pred_pos_horiz_rel_status_flag)
+   (&optional (__pred_pos_horiz_rel_status_flag :null))
+   (if (not (eq __pred_pos_horiz_rel_status_flag :null)) (setq _pred_pos_horiz_rel_status_flag __pred_pos_horiz_rel_status_flag)) _pred_pos_horiz_rel_status_flag)
   (:pred_pos_horiz_abs_status_flag
-   (&optional __pred_pos_horiz_abs_status_flag)
-   (if __pred_pos_horiz_abs_status_flag (setq _pred_pos_horiz_abs_status_flag __pred_pos_horiz_abs_status_flag)) _pred_pos_horiz_abs_status_flag)
+   (&optional (__pred_pos_horiz_abs_status_flag :null))
+   (if (not (eq __pred_pos_horiz_abs_status_flag :null)) (setq _pred_pos_horiz_abs_status_flag __pred_pos_horiz_abs_status_flag)) _pred_pos_horiz_abs_status_flag)
   (:gps_glitch_status_flag
-   (&optional __gps_glitch_status_flag)
-   (if __gps_glitch_status_flag (setq _gps_glitch_status_flag __gps_glitch_status_flag)) _gps_glitch_status_flag)
+   (&optional (__gps_glitch_status_flag :null))
+   (if (not (eq __gps_glitch_status_flag :null)) (setq _gps_glitch_status_flag __gps_glitch_status_flag)) _gps_glitch_status_flag)
   (:accel_error_status_flag
-   (&optional __accel_error_status_flag)
-   (if __accel_error_status_flag (setq _accel_error_status_flag __accel_error_status_flag)) _accel_error_status_flag)
+   (&optional (__accel_error_status_flag :null))
+   (if (not (eq __accel_error_status_flag :null)) (setq _accel_error_status_flag __accel_error_status_flag)) _accel_error_status_flag)
   (:serialization-length
    ()
    (+

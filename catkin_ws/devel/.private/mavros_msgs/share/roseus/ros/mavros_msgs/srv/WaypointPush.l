@@ -26,7 +26,7 @@
   (:init
    (&key
     ((:start_index __start_index) 0)
-    ((:waypoints __waypoints) (let (r) (dotimes (i 0) (push (instance mavros_msgs::Waypoint :init) r)) r))
+    ((:waypoints __waypoints) ())
     )
    (send-super :init)
    (setq _start_index (round __start_index))
@@ -93,8 +93,8 @@
    (setq _wp_transfered (round __wp_transfered))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:wp_transfered
    (&optional __wp_transfered)
    (if __wp_transfered (setq _wp_transfered __wp_transfered)) _wp_transfered)

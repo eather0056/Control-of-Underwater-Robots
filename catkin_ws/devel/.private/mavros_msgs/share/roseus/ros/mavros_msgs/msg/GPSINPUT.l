@@ -41,6 +41,20 @@
 (intern "*GPS_FIX_TYPE_PPP*" (find-package "MAVROS_MSGS::GPSINPUT"))
 (shadow '*GPS_FIX_TYPE_PPP* (find-package "MAVROS_MSGS::GPSINPUT"))
 (defconstant mavros_msgs::GPSINPUT::*GPS_FIX_TYPE_PPP* 8)
+
+(defun mavros_msgs::GPSINPUT-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::GPSINPUT::*GPS_FIX_TYPE_NO_GPS*)
+        ((= const 1) 'mavros_msgs::GPSINPUT::*GPS_FIX_TYPE_NO_FIX*)
+        ((= const 2) 'mavros_msgs::GPSINPUT::*GPS_FIX_TYPE_2D_FIX*)
+        ((= const 3) 'mavros_msgs::GPSINPUT::*GPS_FIX_TYPE_3D_FIX*)
+        ((= const 4) 'mavros_msgs::GPSINPUT::*GPS_FIX_TYPE_DGPS*)
+        ((= const 5) 'mavros_msgs::GPSINPUT::*GPS_FIX_TYPE_RTK_FLOATR*)
+        ((= const 6) 'mavros_msgs::GPSINPUT::*GPS_FIX_TYPE_RTK_FIXEDR*)
+        ((= const 7) 'mavros_msgs::GPSINPUT::*GPS_FIX_TYPE_STATIC*)
+        ((= const 8) 'mavros_msgs::GPSINPUT::*GPS_FIX_TYPE_PPP*)
+        (t nil)))
+
 (defclass mavros_msgs::GPSINPUT
   :super ros::object
   :slots (_header _fix_type _gps_id _ignore_flags _time_week_ms _time_week _lat _lon _alt _hdop _vdop _vn _ve _vd _speed_accuracy _horiz_accuracy _vert_accuracy _satellites_visible _yaw ))

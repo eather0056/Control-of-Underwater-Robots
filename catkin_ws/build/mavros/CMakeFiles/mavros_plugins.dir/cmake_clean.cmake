@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/tihan/catkin_ws/devel/.private/mavros/lib/libmavros_plugins.pdb"
+  "/home/tihan/catkin_ws/devel/.private/mavros/lib/libmavros_plugins.so"
   "CMakeFiles/mavros_plugins.dir/src/plugins/3dr_radio.cpp.o"
   "CMakeFiles/mavros_plugins.dir/src/plugins/actuator_control.cpp.o"
   "CMakeFiles/mavros_plugins.dir/src/plugins/altitude.cpp.o"
@@ -22,15 +24,13 @@ file(REMOVE_RECURSE
   "CMakeFiles/mavros_plugins.dir/src/plugins/setpoint_attitude.cpp.o"
   "CMakeFiles/mavros_plugins.dir/src/plugins/setpoint_position.cpp.o"
   "CMakeFiles/mavros_plugins.dir/src/plugins/setpoint_raw.cpp.o"
-  "CMakeFiles/mavros_plugins.dir/src/plugins/setpoint_velocity.cpp.o"
   "CMakeFiles/mavros_plugins.dir/src/plugins/setpoint_trajectory.cpp.o"
+  "CMakeFiles/mavros_plugins.dir/src/plugins/setpoint_velocity.cpp.o"
   "CMakeFiles/mavros_plugins.dir/src/plugins/sys_status.cpp.o"
   "CMakeFiles/mavros_plugins.dir/src/plugins/sys_time.cpp.o"
   "CMakeFiles/mavros_plugins.dir/src/plugins/vfr_hud.cpp.o"
   "CMakeFiles/mavros_plugins.dir/src/plugins/waypoint.cpp.o"
   "CMakeFiles/mavros_plugins.dir/src/plugins/wind_estimation.cpp.o"
-  "/home/ether/catkin_ws/devel/.private/mavros/lib/libmavros_plugins.pdb"
-  "/home/ether/catkin_ws/devel/.private/mavros/lib/libmavros_plugins.so"
 )
 
 # Per-language clean rules from dependency scanning.

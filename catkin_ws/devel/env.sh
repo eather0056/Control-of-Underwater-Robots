@@ -1,1 +1,1 @@
-/home/ether/catkin_ws/devel/.private/catkin_tools_prebuild/env.sh
+/home/tihan/catkin_ws/devel/.private/catkin_tools_prebuild/env.sh

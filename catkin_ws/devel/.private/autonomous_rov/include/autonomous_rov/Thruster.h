@@ -95,16 +95,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::autonomous_rov::Thruster_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::autonomous_rov::Thruster_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::autonomous_rov::Thruster_<ContainerAllocator> >
   : TrueType
   { };
@@ -112,6 +102,16 @@ struct IsMessage< ::autonomous_rov::Thruster_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::autonomous_rov::Thruster_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::autonomous_rov::Thruster_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::autonomous_rov::Thruster_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

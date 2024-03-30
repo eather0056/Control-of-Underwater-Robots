@@ -18,6 +18,13 @@
 (intern "*TYPE_DIRECTORY*" (find-package "MAVROS_MSGS::FILEENTRY"))
 (shadow '*TYPE_DIRECTORY* (find-package "MAVROS_MSGS::FILEENTRY"))
 (defconstant mavros_msgs::FileEntry::*TYPE_DIRECTORY* 1)
+
+(defun mavros_msgs::FileEntry-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::FileEntry::*TYPE_FILE*)
+        ((= const 1) 'mavros_msgs::FileEntry::*TYPE_DIRECTORY*)
+        (t nil)))
+
 (defclass mavros_msgs::FileEntry
   :super ros::object
   :slots (_name _type _size ))

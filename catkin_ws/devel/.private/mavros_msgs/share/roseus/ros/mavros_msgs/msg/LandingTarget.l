@@ -64,6 +64,27 @@
 (intern "*VISION_OTHER*" (find-package "MAVROS_MSGS::LANDINGTARGET"))
 (shadow '*VISION_OTHER* (find-package "MAVROS_MSGS::LANDINGTARGET"))
 (defconstant mavros_msgs::LandingTarget::*VISION_OTHER* 3)
+
+(defun mavros_msgs::LandingTarget-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::LandingTarget::*GLOBAL*)
+        ((= const 2) 'mavros_msgs::LandingTarget::*LOCAL_NED*)
+        ((= const 3) 'mavros_msgs::LandingTarget::*MISSION*)
+        ((= const 4) 'mavros_msgs::LandingTarget::*GLOBAL_RELATIVE_ALT*)
+        ((= const 5) 'mavros_msgs::LandingTarget::*LOCAL_ENU*)
+        ((= const 6) 'mavros_msgs::LandingTarget::*GLOBAL_INT*)
+        ((= const 7) 'mavros_msgs::LandingTarget::*GLOBAL_RELATIVE_ALT_INT*)
+        ((= const 8) 'mavros_msgs::LandingTarget::*LOCAL_OFFSET_NED*)
+        ((= const 9) 'mavros_msgs::LandingTarget::*BODY_NED*)
+        ((= const 10) 'mavros_msgs::LandingTarget::*BODY_OFFSET_NED*)
+        ((= const 11) 'mavros_msgs::LandingTarget::*GLOBAL_TERRAIN_ALT*)
+        ((= const 12) 'mavros_msgs::LandingTarget::*GLOBAL_TERRAIN_ALT_INT*)
+        ((= const 0) 'mavros_msgs::LandingTarget::*LIGHT_BEACON*)
+        ((= const 1) 'mavros_msgs::LandingTarget::*RADIO_BEACON*)
+        ((= const 2) 'mavros_msgs::LandingTarget::*VISION_FIDUCIAL*)
+        ((= const 3) 'mavros_msgs::LandingTarget::*VISION_OTHER*)
+        (t nil)))
+
 (defclass mavros_msgs::LandingTarget
   :super ros::object
   :slots (_header _target_num _frame _angle _distance _size _pose _type ))

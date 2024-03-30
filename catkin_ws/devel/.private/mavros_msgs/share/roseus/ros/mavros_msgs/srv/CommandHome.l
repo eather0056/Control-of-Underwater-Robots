@@ -39,8 +39,8 @@
    (setq _altitude (float __altitude))
    self)
   (:current_gps
-   (&optional __current_gps)
-   (if __current_gps (setq _current_gps __current_gps)) _current_gps)
+   (&optional (__current_gps :null))
+   (if (not (eq __current_gps :null)) (setq _current_gps __current_gps)) _current_gps)
   (:yaw
    (&optional __yaw)
    (if __yaw (setq _yaw __yaw)) _yaw)
@@ -114,8 +114,8 @@
    (setq _result (round __result))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:result
    (&optional __result)
    (if __result (setq _result __result)) _result)

@@ -53,8 +53,8 @@
    (setq _z (float __z))
    self)
   (:broadcast
-   (&optional __broadcast)
-   (if __broadcast (setq _broadcast __broadcast)) _broadcast)
+   (&optional (__broadcast :null))
+   (if (not (eq __broadcast :null)) (setq _broadcast __broadcast)) _broadcast)
   (:frame
    (&optional __frame)
    (if __frame (setq _frame __frame)) _frame)
@@ -189,8 +189,8 @@
    (setq _success __success)
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:serialization-length
    ()
    (+

@@ -27,6 +27,14 @@
 (intern "*MODE_CREATE*" (find-package "MAVROS_MSGS::FILEOPENREQUEST"))
 (shadow '*MODE_CREATE* (find-package "MAVROS_MSGS::FILEOPENREQUEST"))
 (defconstant mavros_msgs::FileOpenRequest::*MODE_CREATE* 2)
+
+(defun mavros_msgs::FileOpenRequest-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::FileOpenRequest::*MODE_READ*)
+        ((= const 1) 'mavros_msgs::FileOpenRequest::*MODE_WRITE*)
+        ((= const 2) 'mavros_msgs::FileOpenRequest::*MODE_CREATE*)
+        (t nil)))
+
 (defclass mavros_msgs::FileOpenRequest
   :super ros::object
   :slots (_file_path _mode ))
@@ -95,8 +103,8 @@
    (&optional __size)
    (if __size (setq _size __size)) _size)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:r_errno
    (&optional __r_errno)
    (if __r_errno (setq _r_errno __r_errno)) _r_errno)

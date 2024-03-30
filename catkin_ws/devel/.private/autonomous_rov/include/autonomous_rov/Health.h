@@ -136,16 +136,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::autonomous_rov::Health_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::autonomous_rov::Health_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::autonomous_rov::Health_<ContainerAllocator> >
   : TrueType
   { };
@@ -153,6 +143,16 @@ struct IsMessage< ::autonomous_rov::Health_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::autonomous_rov::Health_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::autonomous_rov::Health_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::autonomous_rov::Health_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

@@ -35,14 +35,14 @@
    (setq _trigger_pause __trigger_pause)
    self)
   (:trigger_enable
-   (&optional __trigger_enable)
-   (if __trigger_enable (setq _trigger_enable __trigger_enable)) _trigger_enable)
+   (&optional (__trigger_enable :null))
+   (if (not (eq __trigger_enable :null)) (setq _trigger_enable __trigger_enable)) _trigger_enable)
   (:sequence_reset
-   (&optional __sequence_reset)
-   (if __sequence_reset (setq _sequence_reset __sequence_reset)) _sequence_reset)
+   (&optional (__sequence_reset :null))
+   (if (not (eq __sequence_reset :null)) (setq _sequence_reset __sequence_reset)) _sequence_reset)
   (:trigger_pause
-   (&optional __trigger_pause)
-   (if __trigger_pause (setq _trigger_pause __trigger_pause)) _trigger_pause)
+   (&optional (__trigger_pause :null))
+   (if (not (eq __trigger_pause :null)) (setq _trigger_pause __trigger_pause)) _trigger_pause)
   (:serialization-length
    ()
    (+
@@ -92,8 +92,8 @@
    (setq _result (round __result))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:result
    (&optional __result)
    (if __result (setq _result __result)) _result)

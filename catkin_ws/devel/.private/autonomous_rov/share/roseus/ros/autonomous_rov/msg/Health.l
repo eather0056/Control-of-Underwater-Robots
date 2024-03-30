@@ -68,11 +68,11 @@
    (&optional __p_internal)
    (if __p_internal (setq _p_internal __p_internal)) _p_internal)
   (:sw_1
-   (&optional __sw_1)
-   (if __sw_1 (setq _sw_1 __sw_1)) _sw_1)
+   (&optional (__sw_1 :null))
+   (if (not (eq __sw_1 :null)) (setq _sw_1 __sw_1)) _sw_1)
   (:sw_2
-   (&optional __sw_2)
-   (if __sw_2 (setq _sw_2 __sw_2)) _sw_2)
+   (&optional (__sw_2 :null))
+   (if (not (eq __sw_2 :null)) (setq _sw_2 __sw_2)) _sw_2)
   (:serialization-length
    ()
    (+

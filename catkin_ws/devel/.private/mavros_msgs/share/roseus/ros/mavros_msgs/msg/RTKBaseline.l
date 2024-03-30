@@ -20,6 +20,13 @@
 (intern "*RTK_BASELINE_COORDINATE_SYSTEM_NED*" (find-package "MAVROS_MSGS::RTKBASELINE"))
 (shadow '*RTK_BASELINE_COORDINATE_SYSTEM_NED* (find-package "MAVROS_MSGS::RTKBASELINE"))
 (defconstant mavros_msgs::RTKBaseline::*RTK_BASELINE_COORDINATE_SYSTEM_NED* 1)
+
+(defun mavros_msgs::RTKBaseline-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::RTKBaseline::*RTK_BASELINE_COORDINATE_SYSTEM_ECEF*)
+        ((= const 1) 'mavros_msgs::RTKBaseline::*RTK_BASELINE_COORDINATE_SYSTEM_NED*)
+        (t nil)))
+
 (defclass mavros_msgs::RTKBaseline
   :super ros::object
   :slots (_header _time_last_baseline_ms _rtk_receiver_id _wn _tow _rtk_health _rtk_rate _nsats _baseline_coords_type _baseline_a_mm _baseline_b_mm _baseline_c_mm _accuracy _iar_num_hypotheses ))

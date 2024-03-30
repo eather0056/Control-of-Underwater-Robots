@@ -22,7 +22,7 @@
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
-    ((:esc_telemetry __esc_telemetry) (let (r) (dotimes (i 0) (push (instance mavros_msgs::ESCTelemetryItem :init) r)) r))
+    ((:esc_telemetry __esc_telemetry) ())
     )
    (send-super :init)
    (setq _header __header)

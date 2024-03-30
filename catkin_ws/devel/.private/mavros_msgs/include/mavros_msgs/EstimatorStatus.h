@@ -160,16 +160,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::mavros_msgs::EstimatorStatus_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::mavros_msgs::EstimatorStatus_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::mavros_msgs::EstimatorStatus_<ContainerAllocator> >
   : TrueType
   { };
@@ -177,6 +167,16 @@ struct IsMessage< ::mavros_msgs::EstimatorStatus_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::mavros_msgs::EstimatorStatus_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::mavros_msgs::EstimatorStatus_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::mavros_msgs::EstimatorStatus_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

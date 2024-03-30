@@ -41,6 +41,20 @@
 (intern "*GPS_FIX_TYPE_PPP*" (find-package "MAVROS_MSGS::GPSRAW"))
 (shadow '*GPS_FIX_TYPE_PPP* (find-package "MAVROS_MSGS::GPSRAW"))
 (defconstant mavros_msgs::GPSRAW::*GPS_FIX_TYPE_PPP* 8)
+
+(defun mavros_msgs::GPSRAW-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::GPSRAW::*GPS_FIX_TYPE_NO_GPS*)
+        ((= const 1) 'mavros_msgs::GPSRAW::*GPS_FIX_TYPE_NO_FIX*)
+        ((= const 2) 'mavros_msgs::GPSRAW::*GPS_FIX_TYPE_2D_FIX*)
+        ((= const 3) 'mavros_msgs::GPSRAW::*GPS_FIX_TYPE_3D_FIX*)
+        ((= const 4) 'mavros_msgs::GPSRAW::*GPS_FIX_TYPE_DGPS*)
+        ((= const 5) 'mavros_msgs::GPSRAW::*GPS_FIX_TYPE_RTK_FLOATR*)
+        ((= const 6) 'mavros_msgs::GPSRAW::*GPS_FIX_TYPE_RTK_FIXEDR*)
+        ((= const 7) 'mavros_msgs::GPSRAW::*GPS_FIX_TYPE_STATIC*)
+        ((= const 8) 'mavros_msgs::GPSRAW::*GPS_FIX_TYPE_PPP*)
+        (t nil)))
+
 (defclass mavros_msgs::GPSRAW
   :super ros::object
   :slots (_header _fix_type _lat _lon _alt _eph _epv _vel _cog _satellites_visible _alt_ellipsoid _h_acc _v_acc _vel_acc _hdg_acc _yaw _dgps_numch _dgps_age ))

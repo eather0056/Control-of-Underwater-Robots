@@ -20,6 +20,13 @@
 (intern "*HAVE_INFO_AUTOPILOT_VERSION*" (find-package "MAVROS_MSGS::VEHICLEINFO"))
 (shadow '*HAVE_INFO_AUTOPILOT_VERSION* (find-package "MAVROS_MSGS::VEHICLEINFO"))
 (defconstant mavros_msgs::VehicleInfo::*HAVE_INFO_AUTOPILOT_VERSION* 2)
+
+(defun mavros_msgs::VehicleInfo-to-symbol (const)
+  (cond
+        ((= const 1) 'mavros_msgs::VehicleInfo::*HAVE_INFO_HEARTBEAT*)
+        ((= const 2) 'mavros_msgs::VehicleInfo::*HAVE_INFO_AUTOPILOT_VERSION*)
+        (t nil)))
+
 (defclass mavros_msgs::VehicleInfo
   :super ros::object
   :slots (_header _available_info _sysid _compid _autopilot _type _system_status _base_mode _custom_mode _mode _mode_id _capabilities _flight_sw_version _middleware_sw_version _os_sw_version _board_version _flight_custom_version _vendor_id _product_id _uid ))

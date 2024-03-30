@@ -61,6 +61,26 @@
 (intern "*IGNORE_YAW_RATE*" (find-package "MAVROS_MSGS::GLOBALPOSITIONTARGET"))
 (shadow '*IGNORE_YAW_RATE* (find-package "MAVROS_MSGS::GLOBALPOSITIONTARGET"))
 (defconstant mavros_msgs::GlobalPositionTarget::*IGNORE_YAW_RATE* 2048)
+
+(defun mavros_msgs::GlobalPositionTarget-to-symbol (const)
+  (cond
+        ((= const 5) 'mavros_msgs::GlobalPositionTarget::*FRAME_GLOBAL_INT*)
+        ((= const 6) 'mavros_msgs::GlobalPositionTarget::*FRAME_GLOBAL_REL_ALT*)
+        ((= const 11) 'mavros_msgs::GlobalPositionTarget::*FRAME_GLOBAL_TERRAIN_ALT*)
+        ((= const 1) 'mavros_msgs::GlobalPositionTarget::*IGNORE_LATITUDE*)
+        ((= const 2) 'mavros_msgs::GlobalPositionTarget::*IGNORE_LONGITUDE*)
+        ((= const 4) 'mavros_msgs::GlobalPositionTarget::*IGNORE_ALTITUDE*)
+        ((= const 8) 'mavros_msgs::GlobalPositionTarget::*IGNORE_VX*)
+        ((= const 16) 'mavros_msgs::GlobalPositionTarget::*IGNORE_VY*)
+        ((= const 32) 'mavros_msgs::GlobalPositionTarget::*IGNORE_VZ*)
+        ((= const 64) 'mavros_msgs::GlobalPositionTarget::*IGNORE_AFX*)
+        ((= const 128) 'mavros_msgs::GlobalPositionTarget::*IGNORE_AFY*)
+        ((= const 256) 'mavros_msgs::GlobalPositionTarget::*IGNORE_AFZ*)
+        ((= const 512) 'mavros_msgs::GlobalPositionTarget::*FORCE*)
+        ((= const 1024) 'mavros_msgs::GlobalPositionTarget::*IGNORE_YAW*)
+        ((= const 2048) 'mavros_msgs::GlobalPositionTarget::*IGNORE_YAW_RATE*)
+        (t nil)))
+
 (defclass mavros_msgs::GlobalPositionTarget
   :super ros::object
   :slots (_header _coordinate_frame _type_mask _latitude _longitude _altitude _velocity _acceleration_or_force _yaw _yaw_rate ))

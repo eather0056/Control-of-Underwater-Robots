@@ -60,8 +60,8 @@
    (setq _param_transfered (round __param_transfered))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:param_transfered
    (&optional __param_transfered)
    (if __param_transfered (setq _param_transfered __param_transfered)) _param_transfered)

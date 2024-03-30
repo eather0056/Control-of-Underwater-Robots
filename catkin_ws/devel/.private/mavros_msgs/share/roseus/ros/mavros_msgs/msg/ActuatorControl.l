@@ -26,6 +26,15 @@
 (intern "*PX4_MIX_MANUAL_PASSTHROUGH*" (find-package "MAVROS_MSGS::ACTUATORCONTROL"))
 (shadow '*PX4_MIX_MANUAL_PASSTHROUGH* (find-package "MAVROS_MSGS::ACTUATORCONTROL"))
 (defconstant mavros_msgs::ActuatorControl::*PX4_MIX_MANUAL_PASSTHROUGH* 3)
+
+(defun mavros_msgs::ActuatorControl-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::ActuatorControl::*PX4_MIX_FLIGHT_CONTROL*)
+        ((= const 1) 'mavros_msgs::ActuatorControl::*PX4_MIX_FLIGHT_CONTROL_VTOL_ALT*)
+        ((= const 2) 'mavros_msgs::ActuatorControl::*PX4_MIX_PAYLOAD*)
+        ((= const 3) 'mavros_msgs::ActuatorControl::*PX4_MIX_MANUAL_PASSTHROUGH*)
+        (t nil)))
+
 (defclass mavros_msgs::ActuatorControl
   :super ros::object
   :slots (_header _group_mix _controls ))

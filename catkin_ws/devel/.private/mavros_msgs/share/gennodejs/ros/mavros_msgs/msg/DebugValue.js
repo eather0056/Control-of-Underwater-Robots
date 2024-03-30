@@ -116,7 +116,7 @@ class DebugValue {
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    length += object.name.length;
+    length += _getByteLength(object.name);
     length += 4 * object.data.length;
     return length + 21;
   }

@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
 # Source directory: /usr/src/googletest
-# Build directory: /home/ether/catkin_ws/build/mavros_msgs/gtest
+# Build directory: /home/tihan/catkin_ws/build/mavros_msgs/gtest
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

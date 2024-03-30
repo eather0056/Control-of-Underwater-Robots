@@ -4,7 +4,7 @@
   <!-- roscore automatically started by roslaunch -->
  
 
-   <arg name="ns" default="br4"/>
+   <arg name="ns" default="br2"/>
    <group ns="$(arg ns)">  
 
      <arg 
@@ -14,8 +14,8 @@
     
       <node 
         pkg="autonomous_rov" 
-        type="visual_servoing_MIR_backup.py" 
-        name="image_processing_mir" 
+        type="image_processing_mir_lab.py" 
+        name="image_processing_mir_lab" 
         output="screen" >
         <param 
             name="cam_name" 
@@ -31,7 +31,3 @@
 
    
    
-
-
-
-

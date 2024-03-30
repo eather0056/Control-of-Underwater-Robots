@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/ether/catkin_ws/devel/.private/mavros_extras:$CMAKE_PREFIX_PATH"
-export PWD='/home/ether/catkin_ws/build/mavros_extras'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/ether/catkin_ws/devel/.private/mavros_extras/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/ether/catkin_ws/src/mavros_mavlink/mavros/mavros_extras:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/tihan/catkin_ws/devel/.private/mavros_extras:$CMAKE_PREFIX_PATH"
+export PWD='/home/tihan/catkin_ws/build/mavros_extras'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/tihan/catkin_ws/devel/.private/mavros_extras/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/tihan/catkin_ws/src/mavros_mavlink/mavros/mavros_extras:$ROS_PACKAGE_PATH"

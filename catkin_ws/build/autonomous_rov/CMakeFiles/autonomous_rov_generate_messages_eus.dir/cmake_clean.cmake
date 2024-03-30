@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
+  "/home/tihan/catkin_ws/devel/.private/autonomous_rov/share/roseus/ros/autonomous_rov/manifest.l"
+  "/home/tihan/catkin_ws/devel/.private/autonomous_rov/share/roseus/ros/autonomous_rov/msg/Health.l"
+  "/home/tihan/catkin_ws/devel/.private/autonomous_rov/share/roseus/ros/autonomous_rov/msg/Thruster.l"
   "CMakeFiles/autonomous_rov_generate_messages_eus"
-  "/home/ether/catkin_ws/devel/.private/autonomous_rov/share/roseus/ros/autonomous_rov/msg/Thruster.l"
-  "/home/ether/catkin_ws/devel/.private/autonomous_rov/share/roseus/ros/autonomous_rov/msg/Health.l"
-  "/home/ether/catkin_ws/devel/.private/autonomous_rov/share/roseus/ros/autonomous_rov/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

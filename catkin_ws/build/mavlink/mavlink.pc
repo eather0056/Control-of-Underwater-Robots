@@ -1,5 +1,5 @@
-prefix=/home/ether/catkin_ws/devel
-exec_prefix=/home/ether/catkin_ws/devel
+prefix=/home/tihan/catkin_ws/devel
+exec_prefix=/home/tihan/catkin_ws/devel
 includedir=${prefix}/include
 
 Name: mavlink

@@ -4,6 +4,7 @@ from os import kill
 import string
 import numpy as np
 from yaml import FlowEntryToken
+import matplotlib.pyplot as plt
 
 import rospy
 import tf
@@ -70,6 +71,19 @@ desired_depth = 0.5  # desired depth in meters
 Kp = 0.1  # Start with a small proportional gain and tune it
 
 # ---------- Functions---------------
+def force_to_PWM(f):
+	"""
+	This is a function that converts the force values to PWM for the motors.
+	"""
+
+	if f > 0:
+		PWM = 1536 + 9.8 * f
+	elif f < 0:
+		PWM = 1464 + 11.8762 * f
+	else:
+		PWM = 1500
+
+	return PWM
 
 def joyCallback(data):
 	global arming
@@ -240,13 +254,14 @@ def DvlCallback(data):
 	Vel.linear.y = v
 	Vel.linear.z = w
 	pub_linear_velocity.publish(Vel)
-
 def PressureCallback(data):
 	global depth_p0
 	global depth_wrt_startup
 	global init_p0
 	global Kp
-	global desired_depth
+	global depth_des
+	global Sum_Errors_depth
+
 	rho = 1000.0 # 1025.0 for sea water
 	g = 9.80665
 
@@ -267,6 +282,8 @@ def PressureCallback(data):
 		init_p0 = False
 
 	depth_wrt_startup = (pressure - 101300)/(rho*g) - depth_p0
+ 
+
 
 	# setup depth servo control here
 	# ...
@@ -275,28 +292,45 @@ def PressureCallback(data):
     # Calculate the depth error
 	depth_error = desired_depth - current_depth
 
-    # Apply the proportional controller to calculate the thrust force
-	Fz = Kp * depth_error
 
-	pwm_neutral = 1500  # The PWM signal corresponding to no motion
-	force_to_pwm_scale = 400  # How much the PWM changes per unit of force
+    # # Apply the proportional controller to calculate the thrust force
+	# Fz = Kp * depth_error
 
-    # Calculate the PWM signal from the force, using the conversion factors
-	pwm_signal = pwm_neutral + Fz * force_to_pwm_scale
+	# pwm_neutral = 1500  # The PWM signal corresponding to no motion
+	# force_to_pwm_scale = 1100  # How much the PWM changes per unit of force
 
-    # Convert the force into a PWM signal (1500 is the neutral value for no motion)
-    # This conversion will depend on your specific motor/thruster configuration
-    # You may need to apply scaling and offset
-	Correction_depth = 1500 + pwm_signal
+    # # Calculate the PWM signal from the force, using the conversion factors
+	# pwm_signal = pwm_neutral + Fz * force_to_pwm_scale
 
-    # Ensure PWM limits are respected (usually between 1100 and 1900 for most ESCs)
-	Correction_depth = max(min(Correction_depth, 1900), 1100)
+    # # Convert the force into a PWM signal (1500 is the neutral value for no motion)
+    # # This conversion will depend on your specific motor/thruster configuration
+    # # You may need to apply scaling and offset
+    
+	# Correction_depth = 1500 + pwm_signal
 
+    # # Ensure PWM limits are respected (usually between 1100 and 1900 for most ESCs)
+	# Correction_depth = max(min(Correction_depth, 1900), 1100)
+	Kp_depth = 10
+	Ki_depth = 0
+	Kd_depth = 0
+
+	floatability = 0 # Adding the floatability as a PMW value.
+	depth_des = 0.5
+
+	error = -(depth_des - depth_wrt_startup)
+	Sum_Errors_depth += error 
+
+	f = Kp_depth * error  
+
+	# update Correction_depth
+	Correction_depth = force_to_PWM(f)
 	# update Correction_depth
 	# Correction_depth = 1500	
 	# Send PWM commands to motors
-	Correction_depth = int(Correction_depth)
+	Correction_depth = int(Correction_depth)	
 	setOverrideRCIN(1500, 1500, Correction_depth, 1500, 1500, 1500)
+	return depth_wrt_startup,Correction_depth
+ 
 
 def mapValueScalSat(value):
 	# Correction_Vel and joy between -1 et 1
@@ -329,12 +363,23 @@ def setOverrideRCIN(channel_pitch, channel_roll, channel_throttle, channel_yaw, 
 	msg_override.channels[7] = 1500
 
 	pub_msg_override.publish(msg_override)
+ 
+def plot(depth_wrt_startup):
+    # Plotting fluid pressure over time
+    plt.plot(depth_wrt_startup)
+    plt.xlabel('Time (s)')
+    plt.ylabel('Depth (m)')
+    plt.title('Depth over Time')
+    plt.grid(True)
+    plt.show()
+
+
 
 
 def subscriber():
 	rospy.Subscriber("joy", Joy, joyCallback)
 	rospy.Subscriber("cmd_vel", Twist, velCallback)
-	rospy.Subscriber("mavros/imu/data", Imu, OdoCallback)
+	#rospy.Subscriber("mavros/imu/data", Imu, OdoCallback)
 	rospy.Subscriber("mavros/imu/water_pressure", FluidPressure, PressureCallback)
 	#rospy.Subscriber("/dvl/data", DVL, DvlCallback)
 	rospy.Subscriber("distance_sonar", Float64MultiArray, pingerCallback)
@@ -346,9 +391,10 @@ if __name__ == '__main__':
 	pub_msg_override = rospy.Publisher("mavros/rc/override", OverrideRCIn, queue_size = 10, tcp_nodelay = True)
 	pub_angle_degre = rospy.Publisher('angle_degree', Twist, queue_size = 10, tcp_nodelay = True)
 	pub_depth = rospy.Publisher('depth/state', Float64, queue_size = 10, tcp_nodelay = True)
-
+    
 	pub_angular_velocity = rospy.Publisher('angular_velocity', Twist, queue_size = 10, tcp_nodelay = True)
 	pub_linear_velocity = rospy.Publisher('linear_velocity', Twist, queue_size = 10, tcp_nodelay = True)
-
+ 
+	#plot and save here 
 	subscriber()
 

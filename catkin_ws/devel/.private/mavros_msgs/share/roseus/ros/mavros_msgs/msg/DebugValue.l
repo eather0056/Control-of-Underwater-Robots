@@ -29,6 +29,16 @@
 (intern "*TYPE_NAMED_VALUE_INT*" (find-package "MAVROS_MSGS::DEBUGVALUE"))
 (shadow '*TYPE_NAMED_VALUE_INT* (find-package "MAVROS_MSGS::DEBUGVALUE"))
 (defconstant mavros_msgs::DebugValue::*TYPE_NAMED_VALUE_INT* 4)
+
+(defun mavros_msgs::DebugValue-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::DebugValue::*TYPE_DEBUG*)
+        ((= const 1) 'mavros_msgs::DebugValue::*TYPE_DEBUG_VECT*)
+        ((= const 2) 'mavros_msgs::DebugValue::*TYPE_DEBUG_ARRAY*)
+        ((= const 3) 'mavros_msgs::DebugValue::*TYPE_NAMED_VALUE_FLOAT*)
+        ((= const 4) 'mavros_msgs::DebugValue::*TYPE_NAMED_VALUE_INT*)
+        (t nil)))
+
 (defclass mavros_msgs::DebugValue
   :super ros::object
   :slots (_header _index _name _value_float _value_int _data _type ))

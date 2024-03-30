@@ -4,12 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ether/catkin_ws/src/mavros_mavlink/mavros/mavros/test/test_sensor_orientation.cpp" "/home/ether/catkin_ws/build/mavros/CMakeFiles/libmavros-sensor-orientation-test.dir/test/test_sensor_orientation.cpp.o"
+  "/home/tihan/catkin_ws/src/mavros_mavlink/mavros/mavros/test/test_sensor_orientation.cpp" "/home/tihan/catkin_ws/build/mavros/CMakeFiles/libmavros-sensor-orientation-test.dir/test/test_sensor_orientation.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
+  "BOOST_ALL_NO_LIB"
+  "BOOST_SYSTEM_DYN_LINK"
   "HAVE_SENSOR_MSGS_BATTERYSTATE_MSG"
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_BUILD_SHARED_LIBS=1"
@@ -18,22 +20,22 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/ether/catkin_ws/src/mavros_mavlink/mavros/mavros/include"
-  "/home/ether/catkin_ws/devel/include"
-  "/home/ether/catkin_ws/devel/.private/mavros_msgs/include"
-  "/home/ether/catkin_ws/src/mavros_mavlink/mavros/libmavconn/include"
-  "/home/ether/catkin_ws/src/mavros_mavlink/mavros/mavros_msgs/include"
-  "/opt/ros/melodic/include"
-  "/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/opt/ros/melodic/share/orocos_kdl/cmake/../../../include"
+  "/home/tihan/catkin_ws/src/mavros_mavlink/mavros/mavros/include"
+  "/home/tihan/catkin_ws/devel/include"
+  "/home/tihan/catkin_ws/devel/.private/mavros_msgs/include"
+  "/home/tihan/catkin_ws/src/mavros_mavlink/mavros/libmavconn/include"
+  "/home/tihan/catkin_ws/src/mavros_mavlink/mavros/mavros_msgs/include"
+  "/opt/ros/noetic/include"
+  "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/include/eigen3"
   "/usr/src/googletest/googletest/include"
+  "/usr/src/googletest/googletest"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/ether/catkin_ws/build/mavros/gtest/googlemock/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "/home/ether/catkin_ws/build/mavros/CMakeFiles/mavros.dir/DependInfo.cmake"
+  "/home/tihan/catkin_ws/build/mavros/gtest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/home/tihan/catkin_ws/build/mavros/CMakeFiles/mavros.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

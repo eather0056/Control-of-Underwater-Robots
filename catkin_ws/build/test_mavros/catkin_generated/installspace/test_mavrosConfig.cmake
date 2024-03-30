@@ -67,14 +67,14 @@ set(test_mavros_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(test_mavros_SOURCE_PREFIX /home/ether/catkin_ws/src/mavros_mavlink/mavros/test_mavros)
-  set(test_mavros_DEVEL_PREFIX /home/ether/catkin_ws/devel/.private/test_mavros)
+  set(test_mavros_SOURCE_PREFIX /home/tihan/catkin_ws/src/mavros_mavlink/mavros/test_mavros)
+  set(test_mavros_DEVEL_PREFIX /home/tihan/catkin_ws/devel/.private/test_mavros)
   set(test_mavros_INSTALL_PREFIX "")
   set(test_mavros_PREFIX ${test_mavros_DEVEL_PREFIX})
 else()
   set(test_mavros_SOURCE_PREFIX "")
   set(test_mavros_DEVEL_PREFIX "")
-  set(test_mavros_INSTALL_PREFIX /home/ether/catkin_ws/install)
+  set(test_mavros_INSTALL_PREFIX /home/tihan/catkin_ws/install)
   set(test_mavros_PREFIX ${test_mavros_INSTALL_PREFIX})
 endif()
 
@@ -116,7 +116,7 @@ if(NOT "/usr/include " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "/usr/lib/x86_64-linux-gnu/libboost_system.so")
+set(libraries "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ether/catkin_ws/install/lib;/home/ether/catkin_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/tihan/catkin_ws/install/lib;/home/tihan/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(test_mavros_LIBRARIES ${test_mavros_LIBRARIES})
 
   _list_append_unique(test_mavros_LIBRARY_DIRS ${${test_mavros_dep}_LIBRARY_DIRS})
-  list(APPEND test_mavros_EXPORTED_TARGETS ${${test_mavros_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(test_mavros_EXPORTED_TARGETS ${${test_mavros_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

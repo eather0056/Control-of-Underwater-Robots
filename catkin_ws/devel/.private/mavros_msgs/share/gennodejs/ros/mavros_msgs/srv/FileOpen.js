@@ -62,7 +62,7 @@ class FileOpenRequest {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.file_path.length;
+    length += _getByteLength(object.file_path);
     return length + 5;
   }
 

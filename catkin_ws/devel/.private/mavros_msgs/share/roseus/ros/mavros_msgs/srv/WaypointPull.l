@@ -60,8 +60,8 @@
    (setq _wp_received (round __wp_received))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:wp_received
    (&optional __wp_received)
    (if __wp_received (setq _wp_received __wp_received)) _wp_received)

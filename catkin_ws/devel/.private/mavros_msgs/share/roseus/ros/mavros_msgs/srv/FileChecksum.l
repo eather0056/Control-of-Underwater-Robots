@@ -75,8 +75,8 @@
    (&optional __crc32)
    (if __crc32 (setq _crc32 __crc32)) _crc32)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:r_errno
    (&optional __r_errno)
    (if __r_errno (setq _r_errno __r_errno)) _r_errno)

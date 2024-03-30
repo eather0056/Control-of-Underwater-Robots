@@ -21,7 +21,7 @@ set(mavlink2_DIALECTS ASLUAV;all;ardupilotmega;common;development;icarous;matrix
 foreach(lib )
   set(onelib "${lib}-NOTFOUND")
   find_library(onelib ${lib}
-      PATHS "/home/ether/catkin_ws/devel/lib"
+      PATHS "/home/tihan/catkin_ws/devel/lib"
     NO_DEFAULT_PATH
     )
   if(NOT onelib)

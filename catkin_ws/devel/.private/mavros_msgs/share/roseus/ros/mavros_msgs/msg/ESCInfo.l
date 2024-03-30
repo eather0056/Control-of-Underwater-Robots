@@ -26,7 +26,7 @@
     ((:count __count) 0)
     ((:connection_type __connection_type) 0)
     ((:info __info) 0)
-    ((:esc_info __esc_info) (let (r) (dotimes (i 0) (push (instance mavros_msgs::ESCInfoItem :init) r)) r))
+    ((:esc_info __esc_info) ())
     )
    (send-super :init)
    (setq _header __header)

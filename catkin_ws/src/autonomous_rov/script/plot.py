@@ -1,37 +1,32 @@
-#!/usr/bin/env python
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-from matplotlib import style
+#!/usr/bin/env python3
+
 import rospy
-from sensor_msgs.msg import FluidPressure  # Correct message type
+from sensor_msgs.msg import FluidPressure
+import matplotlib.pyplot as plt
 
-# Initialize ROS node
-rospy.init_node('water_pressure_plotter', anonymous=True)
+# Global variables to store time and pressure data
+timestamps = []
+pressures = []
 
-# Create a figure for plotting
-style.use('fivethirtyeight')
-fig = plt.figure()
-ax1 = fig.add_subplot(1,1,1)
+# Callback function to process messages from the topic
+def pressure_callback(msg):
+    global timestamps, pressures
+    timestamps.append(msg.header.stamp.secs + msg.header.stamp.nsecs * 1e-9)
+    pressures.append(msg.fluid_pressure)
 
-water_pressure_data = []
+def plot_pressure():
+    plt.plot(timestamps, pressures)
+    plt.xlabel('Time (s)')
+    plt.ylabel('Fluid Pressure (Pa)')
+    plt.title('Fluid Pressure over Time')
+    plt.grid(True)
+    plt.show()
 
-# Callback function for the subscriber
-def callback(data):
-    water_pressure = data.fluid_pressure  # Correct field for FluidPressure message
-    water_pressure_data.append(water_pressure)
-    if len(water_pressure_data) > 50:  # Limit the size of the data
-        water_pressure_data.pop(0)
+def listener():
+    rospy.init_node('pressure_listener', anonymous=True)
+    rospy.Subscriber("/br2/mavros/imu/water_pressure", FluidPressure, pressure_callback)
+    rospy.spin()
 
-# ROS Subscriber
-rospy.Subscriber("/br2/mavros/imu/water_pressure", FluidPressure, callback)  # Correct message type
-
-# Animation function for Matplotlib
-def animate(i):
-    ax1.clear()
-    ax1.plot(water_pressure_data)
-    ax1.set_title('Real-Time Water Pressure')
-    ax1.set_xlabel('Time')
-    ax1.set_ylabel('Pressure (Pa)')
-
-ani = animation.FuncAnimation(fig, animate, interval=1000)
-plt.show()
+if __name__ == '__main__':
+    listener()
+    plot_pressure()

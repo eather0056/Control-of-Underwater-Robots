@@ -115,16 +115,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::mavros_msgs::FileEntry_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::mavros_msgs::FileEntry_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::mavros_msgs::FileEntry_<ContainerAllocator> >
   : TrueType
   { };
@@ -132,6 +122,16 @@ struct IsMessage< ::mavros_msgs::FileEntry_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::mavros_msgs::FileEntry_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::mavros_msgs::FileEntry_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::mavros_msgs::FileEntry_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

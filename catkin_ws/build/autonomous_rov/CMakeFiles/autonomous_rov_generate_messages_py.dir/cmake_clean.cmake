@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
+  "/home/tihan/catkin_ws/devel/.private/autonomous_rov/lib/python3/dist-packages/autonomous_rov/msg/_Health.py"
+  "/home/tihan/catkin_ws/devel/.private/autonomous_rov/lib/python3/dist-packages/autonomous_rov/msg/_Thruster.py"
+  "/home/tihan/catkin_ws/devel/.private/autonomous_rov/lib/python3/dist-packages/autonomous_rov/msg/__init__.py"
   "CMakeFiles/autonomous_rov_generate_messages_py"
-  "/home/ether/catkin_ws/devel/.private/autonomous_rov/lib/python2.7/dist-packages/autonomous_rov/msg/_Thruster.py"
-  "/home/ether/catkin_ws/devel/.private/autonomous_rov/lib/python2.7/dist-packages/autonomous_rov/msg/_Health.py"
-  "/home/ether/catkin_ws/devel/.private/autonomous_rov/lib/python2.7/dist-packages/autonomous_rov/msg/__init__.py"
 )
 
 # Per-language clean rules from dependency scanning.

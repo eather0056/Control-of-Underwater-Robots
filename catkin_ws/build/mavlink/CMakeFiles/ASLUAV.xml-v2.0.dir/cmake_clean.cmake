@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ASLUAV.xml-v2.0"
   "ASLUAV-v2.0-cxx-stamp"
+  "CMakeFiles/ASLUAV.xml-v2.0"
 )
 
 # Per-language clean rules from dependency scanning.

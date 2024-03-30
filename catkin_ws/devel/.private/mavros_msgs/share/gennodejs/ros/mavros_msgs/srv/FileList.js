@@ -52,7 +52,7 @@ class FileListRequest {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.dir_path.length;
+    length += _getByteLength(object.dir_path);
     return length + 4;
   }
 

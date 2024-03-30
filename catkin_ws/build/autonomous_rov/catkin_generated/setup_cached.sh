@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/ether/catkin_ws/devel/.private/autonomous_rov:$CMAKE_PREFIX_PATH"
-export PWD='/home/ether/catkin_ws/build/autonomous_rov'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/ether/catkin_ws/devel/.private/autonomous_rov/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/ether/catkin_ws/src/autonomous_rov:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/tihan/catkin_ws/devel/.private/autonomous_rov:$CMAKE_PREFIX_PATH"
+export PWD='/home/tihan/catkin_ws/build/autonomous_rov'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/tihan/catkin_ws/devel/.private/autonomous_rov/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/tihan/catkin_ws/src/autonomous_rov:$ROS_PACKAGE_PATH"

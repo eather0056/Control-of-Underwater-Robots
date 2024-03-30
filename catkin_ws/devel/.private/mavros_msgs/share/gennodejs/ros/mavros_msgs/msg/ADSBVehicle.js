@@ -193,7 +193,7 @@ class ADSBVehicle {
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    length += object.callsign.length;
+    length += _getByteLength(object.callsign);
     return length + 54;
   }
 

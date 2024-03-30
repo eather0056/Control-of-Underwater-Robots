@@ -67,14 +67,14 @@ set(autonomous_rov_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(autonomous_rov_SOURCE_PREFIX /home/ether/catkin_ws/src/autonomous_rov)
-  set(autonomous_rov_DEVEL_PREFIX /home/ether/catkin_ws/devel/.private/autonomous_rov)
+  set(autonomous_rov_SOURCE_PREFIX /home/tihan/catkin_ws/src/autonomous_rov)
+  set(autonomous_rov_DEVEL_PREFIX /home/tihan/catkin_ws/devel/.private/autonomous_rov)
   set(autonomous_rov_INSTALL_PREFIX "")
   set(autonomous_rov_PREFIX ${autonomous_rov_DEVEL_PREFIX})
 else()
   set(autonomous_rov_SOURCE_PREFIX "")
   set(autonomous_rov_DEVEL_PREFIX "")
-  set(autonomous_rov_INSTALL_PREFIX /home/ether/catkin_ws/install)
+  set(autonomous_rov_INSTALL_PREFIX /home/tihan/catkin_ws/install)
   set(autonomous_rov_PREFIX ${autonomous_rov_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ether/catkin_ws/install/lib;/home/ether/catkin_ws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/tihan/catkin_ws/install/lib;/home/tihan/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(autonomous_rov_LIBRARIES ${autonomous_rov_LIBRARIES})
 
   _list_append_unique(autonomous_rov_LIBRARY_DIRS ${${autonomous_rov_dep}_LIBRARY_DIRS})
-  list(APPEND autonomous_rov_EXPORTED_TARGETS ${${autonomous_rov_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(autonomous_rov_EXPORTED_TARGETS ${${autonomous_rov_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "autonomous_rov-msg-extras.cmake")

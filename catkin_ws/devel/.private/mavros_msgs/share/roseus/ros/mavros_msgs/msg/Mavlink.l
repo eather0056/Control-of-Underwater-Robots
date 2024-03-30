@@ -29,6 +29,16 @@
 (intern "*MAVLINK_V20*" (find-package "MAVROS_MSGS::MAVLINK"))
 (shadow '*MAVLINK_V20* (find-package "MAVROS_MSGS::MAVLINK"))
 (defconstant mavros_msgs::Mavlink::*MAVLINK_V20* 253)
+
+(defun mavros_msgs::Mavlink-to-symbol (const)
+  (cond
+        ((= const 1) 'mavros_msgs::Mavlink::*FRAMING_OK*)
+        ((= const 2) 'mavros_msgs::Mavlink::*FRAMING_BAD_CRC*)
+        ((= const 3) 'mavros_msgs::Mavlink::*FRAMING_BAD_SIGNATURE*)
+        ((= const 254) 'mavros_msgs::Mavlink::*MAVLINK_V10*)
+        ((= const 253) 'mavros_msgs::Mavlink::*MAVLINK_V20*)
+        (t nil)))
+
 (defclass mavros_msgs::Mavlink
   :super ros::object
   :slots (_header _framing_status _magic _len _incompat_flags _compat_flags _seq _sysid _compid _msgid _checksum _payload64 _signature ))

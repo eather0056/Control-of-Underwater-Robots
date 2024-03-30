@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import math
+import matplotlib as plt
 from os import kill
 import string
 import numpy as np
@@ -256,7 +257,6 @@ def PressureCallback(data):
 
 	# setup depth servo control here
 	# ...
-
 	# update Correction_depth
 	Correction_depth = 1500	
 	# Send PWM commands to motors

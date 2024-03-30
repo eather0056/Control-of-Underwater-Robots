@@ -22,7 +22,7 @@
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
-    ((:esc_status __esc_status) (let (r) (dotimes (i 0) (push (instance mavros_msgs::ESCStatusItem :init) r)) r))
+    ((:esc_status __esc_status) ())
     )
    (send-super :init)
    (setq _header __header)

@@ -62,8 +62,8 @@ class FileRenameRequest {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.old_path.length;
-    length += object.new_path.length;
+    length += _getByteLength(object.old_path);
+    length += _getByteLength(object.new_path);
     return length + 8;
   }
 

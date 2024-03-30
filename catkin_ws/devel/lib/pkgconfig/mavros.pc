@@ -1,1 +1,1 @@
-/home/ether/catkin_ws/devel/.private/mavros/lib/pkgconfig/mavros.pc
+/home/tihan/catkin_ws/devel/.private/mavros/lib/pkgconfig/mavros.pc

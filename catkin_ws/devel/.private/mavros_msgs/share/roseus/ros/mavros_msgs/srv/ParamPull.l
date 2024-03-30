@@ -31,8 +31,8 @@
    (setq _force_pull __force_pull)
    self)
   (:force_pull
-   (&optional __force_pull)
-   (if __force_pull (setq _force_pull __force_pull)) _force_pull)
+   (&optional (__force_pull :null))
+   (if (not (eq __force_pull :null)) (setq _force_pull __force_pull)) _force_pull)
   (:serialization-length
    ()
    (+
@@ -70,8 +70,8 @@
    (setq _param_received (round __param_received))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:param_received
    (&optional __param_received)
    (if __param_received (setq _param_received __param_received)) _param_received)

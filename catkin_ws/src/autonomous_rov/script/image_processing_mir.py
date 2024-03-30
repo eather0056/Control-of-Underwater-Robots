@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import numpy as np
 import rospy
 from std_msgs.msg import Float64MultiArray
@@ -6,17 +6,10 @@ from sensor_msgs.msg import CompressedImage
 import cv2
 import camera_parameters as cam
 
-get_hsv = False
-
-def click_detect(event, x, y, flags, param):
-    global get_hsv, mouseX, mouseY
-    if event == cv2.EVENT_LBUTTONDOWN:
-        get_hsv = True
-        mouseX, mouseY = x, y
 
 # display point and text in an image
 # param image : the image to overlay
-# param pt : array that represents the 2D point in pixel
+# param pt : array that represents the 2D point in pixel 
 # param r : red intensity
 # param g : green intensity
 # param b : blue intensity
@@ -31,8 +24,6 @@ def overlay_points(image, pt, r, g, b, text="", scale=1, offsetx=5, offsety=5):
 
 # Function that is called at every image frame by the image subscriber
 def cameracallback(image_data):
-
-    global get_hsv, mouseX, mouseY
     # Get image data
     np_arr = np.fromstring(image_data.data, np.uint8)
     image_np = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
@@ -43,11 +34,11 @@ def cameracallback(image_data):
 
     # Display image data
     cv2.namedWindow("image")
-    cv2.namedWindow("mask")
+
     # Broadcast center of the buoy
     # Default coordinates in pixels
     desired_point = [image_width / 2, image_height / 2]
-    current_point = [image_width / 2, image_height / 2]
+    current_point = [50, 50]
 
     # =================================#
     # TODO 1. Track the Buoy:          #
@@ -58,20 +49,15 @@ def cameracallback(image_data):
     # Convert the image from BGR to HSV
     hsv = cv2.cvtColor(image_np, cv2.COLOR_BGR2HSV)
 
-    cv2.setMouseCallback("image", click_detect)
-
     # Define the lower and upper bounds for the red color 
-    lower_red = np.array([150, 100, 100])
-    upper_red = np.array([180, 255, 255])
-    #[173 67 199}
+    lower_red = np.array([0, 100, 100])
+    upper_red = np.array([10, 255, 255])
 
     # Create a mask for the red color
     mask = cv2.inRange(hsv, lower_red, upper_red)
 
     # Find contours in the mask
-    #contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    _, contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
+    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     # Check if any contour is found
     if contours:
@@ -80,25 +66,12 @@ def cameracallback(image_data):
 
         # Calculate the center of the contour
         M = cv2.moments(largest_contour)
- 	if M['m00'] != 0:
-       	    cx = int(M['m10'] / M['m00'])
-            cy = int(M['m01'] / M['m00'])
-	else:
-	    cx = 0  # or any other value to handle the division by zero case
-	    cy = 0
+        cx = int(M['m10'] / M['m00'])
+        cy = int(M['m01'] / M['m00'])
         current_point = [cx, cy]
     else:
         # If no contour is found, keep the current point the same (no tracking)
         pass
-        
-    non_zero_pixels = cv2.findNonZero(mask)
-    if non_zero_pixels is not None and len(non_zero_pixels) > 0:
-    	mean_point = np.mean(non_zero_pixels, axis=0, dtype=np.int)
-    	cx, cy = mean_point[0]
-    	# Draw a circle at the center
-    	cv2.circle(image_np, (cx, cy), 5, (0, 255, 0), -1)
-    	#print("Center Pixel of Blob: ({}, {})".format(cx, cy))
-
 
     # =================================#
 
@@ -108,23 +81,24 @@ def cameracallback(image_data):
 
     # Convert the point into meters
     current_point_meter = cam.convertOnePoint2meter(current_point)
-    # print('current points in meter', current_point_meter)
+    print('current points in meter', current_point_meter)
     current_point_msg = Float64MultiArray(data=current_point_meter)
+    pub_tracked_point.publish(current_point_msg)
 
     desired_point_meter = cam.convertOnePoint2meter(desired_point)
-    # print('desired point in meter', desired_point_meter)
+    print('desired point in meter', desired_point_meter)
     desired_point_msg = Float64MultiArray(data=desired_point_meter)
+    pub_desired_point.publish(desired_point_msg)
 
     cv2.imshow("image", image_np)
-    cv2.imshow("mask", mask)
     cv2.waitKey(2)
 
 # Subscribers
 def subscribers():
     # Default image topic
-    # image_topic_name = "usb_cam/image/compressed"
-    image_topic_name = "/br2/raspicam_node/image/compressed"
-    # image_topic_name = "/br5/usb_cam/image_raw/compressed"
+    #image_topic_name = "usb_cam/image/compressed"
+    image_topic_name = "/br2/usb_cam/image_raw/compressed"
+    #image_topic_name = "/br4/raspicam_node/image/compressed"
 
     # Get image topic name from the launch file/prompt parameters
     if rospy.has_param('~cam_name'):
@@ -147,4 +121,3 @@ if __name__ == '__main__':
     publishers()
     subscribers()
     rospy.spin()  # Execute in a loop
-

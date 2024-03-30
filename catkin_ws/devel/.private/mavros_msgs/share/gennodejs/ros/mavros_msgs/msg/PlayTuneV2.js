@@ -59,7 +59,7 @@ class PlayTuneV2 {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.tune.length;
+    length += _getByteLength(object.tune);
     return length + 5;
   }
 

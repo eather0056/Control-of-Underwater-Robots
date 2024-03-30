@@ -18,6 +18,13 @@
 (intern "*CHAN_NOCHANGE*" (find-package "MAVROS_MSGS::OVERRIDERCIN"))
 (shadow '*CHAN_NOCHANGE* (find-package "MAVROS_MSGS::OVERRIDERCIN"))
 (defconstant mavros_msgs::OverrideRCIn::*CHAN_NOCHANGE* 65535)
+
+(defun mavros_msgs::OverrideRCIn-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::OverrideRCIn::*CHAN_RELEASE*)
+        ((= const 65535) 'mavros_msgs::OverrideRCIn::*CHAN_NOCHANGE*)
+        (t nil)))
+
 (defclass mavros_msgs::OverrideRCIn
   :super ros::object
   :slots (_channels ))

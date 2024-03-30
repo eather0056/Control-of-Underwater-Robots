@@ -20,6 +20,13 @@
 (intern "*MAV_TRAJECTORY_REPRESENTATION_BEZIER*" (find-package "MAVROS_MSGS::TRAJECTORY"))
 (shadow '*MAV_TRAJECTORY_REPRESENTATION_BEZIER* (find-package "MAVROS_MSGS::TRAJECTORY"))
 (defconstant mavros_msgs::Trajectory::*MAV_TRAJECTORY_REPRESENTATION_BEZIER* 1)
+
+(defun mavros_msgs::Trajectory-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::Trajectory::*MAV_TRAJECTORY_REPRESENTATION_WAYPOINTS*)
+        ((= const 1) 'mavros_msgs::Trajectory::*MAV_TRAJECTORY_REPRESENTATION_BEZIER*)
+        (t nil)))
+
 (defclass mavros_msgs::Trajectory
   :super ros::object
   :slots (_header _type _point_1 _point_2 _point_3 _point_4 _point_5 _point_valid _command _time_horizon ))

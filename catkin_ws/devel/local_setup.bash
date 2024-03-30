@@ -1,1 +1,1 @@
-/home/ether/catkin_ws/devel/.private/catkin_tools_prebuild/local_setup.bash
+/home/tihan/catkin_ws/devel/.private/catkin_tools_prebuild/local_setup.bash

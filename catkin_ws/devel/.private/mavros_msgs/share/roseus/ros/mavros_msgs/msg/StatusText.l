@@ -38,6 +38,19 @@
 (intern "*DEBUG*" (find-package "MAVROS_MSGS::STATUSTEXT"))
 (shadow '*DEBUG* (find-package "MAVROS_MSGS::STATUSTEXT"))
 (defconstant mavros_msgs::StatusText::*DEBUG* 7)
+
+(defun mavros_msgs::StatusText-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::StatusText::*EMERGENCY*)
+        ((= const 1) 'mavros_msgs::StatusText::*ALERT*)
+        ((= const 2) 'mavros_msgs::StatusText::*CRITICAL*)
+        ((= const 3) 'mavros_msgs::StatusText::*ERROR*)
+        ((= const 4) 'mavros_msgs::StatusText::*WARNING*)
+        ((= const 5) 'mavros_msgs::StatusText::*NOTICE*)
+        ((= const 6) 'mavros_msgs::StatusText::*INFO*)
+        ((= const 7) 'mavros_msgs::StatusText::*DEBUG*)
+        (t nil)))
+
 (defclass mavros_msgs::StatusText
   :super ros::object
   :slots (_header _severity _text ))

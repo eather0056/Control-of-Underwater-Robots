@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/tihan/catkin_ws/devel/.private/autonomous_rov/include/autonomous_rov/Health.h"
+  "/home/tihan/catkin_ws/devel/.private/autonomous_rov/include/autonomous_rov/Thruster.h"
   "CMakeFiles/autonomous_rov_generate_messages_cpp"
-  "/home/ether/catkin_ws/devel/.private/autonomous_rov/include/autonomous_rov/Thruster.h"
-  "/home/ether/catkin_ws/devel/.private/autonomous_rov/include/autonomous_rov/Health.h"
 )
 
 # Per-language clean rules from dependency scanning.

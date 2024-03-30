@@ -1,5 +1,5 @@
-Symlinking /home/ether/catkin_ws/devel/lib/libmavros_sitl_test.so
-Symlinking /home/ether/catkin_ws/devel/lib/test_mavros/sitl_test_node
-Symlinking /home/ether/catkin_ws/devel/lib/pkgconfig/test_mavros.pc
-Symlinking /home/ether/catkin_ws/devel/share/test_mavros/cmake/test_mavrosConfig-version.cmake
-Symlinking /home/ether/catkin_ws/devel/share/test_mavros/cmake/test_mavrosConfig.cmake
+Symlinking /home/tihan/catkin_ws/devel/lib/libmavros_sitl_test.so
+Symlinking /home/tihan/catkin_ws/devel/lib/test_mavros/sitl_test_node
+Symlinking /home/tihan/catkin_ws/devel/lib/pkgconfig/test_mavros.pc
+Symlinking /home/tihan/catkin_ws/devel/share/test_mavros/cmake/test_mavrosConfig.cmake
+Symlinking /home/tihan/catkin_ws/devel/share/test_mavros/cmake/test_mavrosConfig-version.cmake

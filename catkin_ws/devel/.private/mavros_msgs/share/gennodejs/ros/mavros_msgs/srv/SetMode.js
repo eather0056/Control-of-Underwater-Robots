@@ -62,7 +62,7 @@ class SetModeRequest {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.custom_mode.length;
+    length += _getByteLength(object.custom_mode);
     return length + 5;
   }
 

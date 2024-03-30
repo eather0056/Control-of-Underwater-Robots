@@ -51,6 +51,22 @@
 (intern "*MAV_MODE_TEST_ARMED*" (find-package "MAVROS_MSGS::SETMODEREQUEST"))
 (shadow '*MAV_MODE_TEST_ARMED* (find-package "MAVROS_MSGS::SETMODEREQUEST"))
 (defconstant mavros_msgs::SetModeRequest::*MAV_MODE_TEST_ARMED* 194)
+
+(defun mavros_msgs::SetModeRequest-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::SetModeRequest::*MAV_MODE_PREFLIGHT*)
+        ((= const 80) 'mavros_msgs::SetModeRequest::*MAV_MODE_STABILIZE_DISARMED*)
+        ((= const 208) 'mavros_msgs::SetModeRequest::*MAV_MODE_STABILIZE_ARMED*)
+        ((= const 64) 'mavros_msgs::SetModeRequest::*MAV_MODE_MANUAL_DISARMED*)
+        ((= const 192) 'mavros_msgs::SetModeRequest::*MAV_MODE_MANUAL_ARMED*)
+        ((= const 88) 'mavros_msgs::SetModeRequest::*MAV_MODE_GUIDED_DISARMED*)
+        ((= const 216) 'mavros_msgs::SetModeRequest::*MAV_MODE_GUIDED_ARMED*)
+        ((= const 92) 'mavros_msgs::SetModeRequest::*MAV_MODE_AUTO_DISARMED*)
+        ((= const 220) 'mavros_msgs::SetModeRequest::*MAV_MODE_AUTO_ARMED*)
+        ((= const 66) 'mavros_msgs::SetModeRequest::*MAV_MODE_TEST_DISARMED*)
+        ((= const 194) 'mavros_msgs::SetModeRequest::*MAV_MODE_TEST_ARMED*)
+        (t nil)))
+
 (defclass mavros_msgs::SetModeRequest
   :super ros::object
   :slots (_base_mode _custom_mode ))
@@ -112,8 +128,8 @@
    (setq _success __success)
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:serialization-length
    ()
    (+

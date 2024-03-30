@@ -20,7 +20,7 @@
   (:init
    (&key
     ((:current_seq __current_seq) 0)
-    ((:waypoints __waypoints) (let (r) (dotimes (i 0) (push (instance mavros_msgs::Waypoint :init) r)) r))
+    ((:waypoints __waypoints) ())
     )
    (send-super :init)
    (setq _current_seq (round __current_seq))

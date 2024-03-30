@@ -1,4 +1,4 @@
-prefix=/home/ether/catkin_ws/install
+prefix=/home/tihan/catkin_ws/install
 
 Name: catkin_tools_prebuild
 Description: Description of catkin_tools_prebuild

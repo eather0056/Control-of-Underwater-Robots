@@ -29,6 +29,16 @@
 (intern "*MAV_MOUNT_MODE_GPS_POINT*" (find-package "MAVROS_MSGS::MOUNTCONTROL"))
 (shadow '*MAV_MOUNT_MODE_GPS_POINT* (find-package "MAVROS_MSGS::MOUNTCONTROL"))
 (defconstant mavros_msgs::MountControl::*MAV_MOUNT_MODE_GPS_POINT* 4)
+
+(defun mavros_msgs::MountControl-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::MountControl::*MAV_MOUNT_MODE_RETRACT*)
+        ((= const 1) 'mavros_msgs::MountControl::*MAV_MOUNT_MODE_NEUTRAL*)
+        ((= const 2) 'mavros_msgs::MountControl::*MAV_MOUNT_MODE_MAVLINK_TARGETING*)
+        ((= const 3) 'mavros_msgs::MountControl::*MAV_MOUNT_MODE_RC_TARGETING*)
+        ((= const 4) 'mavros_msgs::MountControl::*MAV_MOUNT_MODE_GPS_POINT*)
+        (t nil)))
+
 (defclass mavros_msgs::MountControl
   :super ros::object
   :slots (_header _mode _pitch _roll _yaw _altitude _latitude _longitude ))

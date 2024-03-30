@@ -200,6 +200,11 @@
 (intern "*MODE_PX4_TAKEOFF*" (find-package "MAVROS_MSGS::STATE"))
 (shadow '*MODE_PX4_TAKEOFF* (find-package "MAVROS_MSGS::STATE"))
 (defconstant mavros_msgs::State::*MODE_PX4_TAKEOFF* "AUTO.TAKEOFF")
+
+(defun mavros_msgs::State-to-symbol (const)
+  (cond
+        (t nil)))
+
 (defclass mavros_msgs::State
   :super ros::object
   :slots (_header _connected _armed _guided _manual_input _mode _system_status ))
@@ -232,17 +237,17 @@
        (if __header (setq _header (car __header)))
        _header)))
   (:connected
-   (&optional __connected)
-   (if __connected (setq _connected __connected)) _connected)
+   (&optional (__connected :null))
+   (if (not (eq __connected :null)) (setq _connected __connected)) _connected)
   (:armed
-   (&optional __armed)
-   (if __armed (setq _armed __armed)) _armed)
+   (&optional (__armed :null))
+   (if (not (eq __armed :null)) (setq _armed __armed)) _armed)
   (:guided
-   (&optional __guided)
-   (if __guided (setq _guided __guided)) _guided)
+   (&optional (__guided :null))
+   (if (not (eq __guided :null)) (setq _guided __guided)) _guided)
   (:manual_input
-   (&optional __manual_input)
-   (if __manual_input (setq _manual_input __manual_input)) _manual_input)
+   (&optional (__manual_input :null))
+   (if (not (eq __manual_input :null)) (setq _manual_input __manual_input)) _manual_input)
   (:mode
    (&optional __mode)
    (if __mode (setq _mode __mode)) _mode)

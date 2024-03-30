@@ -64,6 +64,27 @@
 (intern "*IGNORE_YAW_RATE*" (find-package "MAVROS_MSGS::POSITIONTARGET"))
 (shadow '*IGNORE_YAW_RATE* (find-package "MAVROS_MSGS::POSITIONTARGET"))
 (defconstant mavros_msgs::PositionTarget::*IGNORE_YAW_RATE* 2048)
+
+(defun mavros_msgs::PositionTarget-to-symbol (const)
+  (cond
+        ((= const 1) 'mavros_msgs::PositionTarget::*FRAME_LOCAL_NED*)
+        ((= const 7) 'mavros_msgs::PositionTarget::*FRAME_LOCAL_OFFSET_NED*)
+        ((= const 8) 'mavros_msgs::PositionTarget::*FRAME_BODY_NED*)
+        ((= const 9) 'mavros_msgs::PositionTarget::*FRAME_BODY_OFFSET_NED*)
+        ((= const 1) 'mavros_msgs::PositionTarget::*IGNORE_PX*)
+        ((= const 2) 'mavros_msgs::PositionTarget::*IGNORE_PY*)
+        ((= const 4) 'mavros_msgs::PositionTarget::*IGNORE_PZ*)
+        ((= const 8) 'mavros_msgs::PositionTarget::*IGNORE_VX*)
+        ((= const 16) 'mavros_msgs::PositionTarget::*IGNORE_VY*)
+        ((= const 32) 'mavros_msgs::PositionTarget::*IGNORE_VZ*)
+        ((= const 64) 'mavros_msgs::PositionTarget::*IGNORE_AFX*)
+        ((= const 128) 'mavros_msgs::PositionTarget::*IGNORE_AFY*)
+        ((= const 256) 'mavros_msgs::PositionTarget::*IGNORE_AFZ*)
+        ((= const 512) 'mavros_msgs::PositionTarget::*FORCE*)
+        ((= const 1024) 'mavros_msgs::PositionTarget::*IGNORE_YAW*)
+        ((= const 2048) 'mavros_msgs::PositionTarget::*IGNORE_YAW_RATE*)
+        (t nil)))
+
 (defclass mavros_msgs::PositionTarget
   :super ros::object
   :slots (_header _coordinate_frame _type_mask _position _velocity _acceleration_or_force _yaw _yaw_rate ))

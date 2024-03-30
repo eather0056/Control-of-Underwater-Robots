@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/tihan/catkin_ws/devel/.private/autonomous_rov/lib/autonomous_rov/teleop_xbox"
+  "/home/tihan/catkin_ws/devel/.private/autonomous_rov/lib/autonomous_rov/teleop_xbox.pdb"
   "CMakeFiles/teleop_xbox.dir/src/teleop_xbox.cpp.o"
-  "/home/ether/catkin_ws/devel/.private/autonomous_rov/lib/autonomous_rov/teleop_xbox.pdb"
-  "/home/ether/catkin_ws/devel/.private/autonomous_rov/lib/autonomous_rov/teleop_xbox"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -45,6 +45,22 @@
 (intern "*PAYLOAD_TYPE_STORM32_RESERVED9*" (find-package "MAVROS_MSGS::TUNNEL"))
 (shadow '*PAYLOAD_TYPE_STORM32_RESERVED9* (find-package "MAVROS_MSGS::TUNNEL"))
 (defconstant mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED9* 209)
+
+(defun mavros_msgs::Tunnel-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_UNKNOWN*)
+        ((= const 200) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED0*)
+        ((= const 201) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED1*)
+        ((= const 202) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED2*)
+        ((= const 203) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED3*)
+        ((= const 204) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED4*)
+        ((= const 205) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED5*)
+        ((= const 206) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED6*)
+        ((= const 207) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED7*)
+        ((= const 208) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED8*)
+        ((= const 209) 'mavros_msgs::Tunnel::*PAYLOAD_TYPE_STORM32_RESERVED9*)
+        (t nil)))
+
 (defclass mavros_msgs::Tunnel
   :super ros::object
   :slots (_target_system _target_component _payload_type _payload_length _payload ))

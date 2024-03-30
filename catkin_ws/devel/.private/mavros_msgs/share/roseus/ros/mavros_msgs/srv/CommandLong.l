@@ -49,8 +49,8 @@
    (setq _param7 (float __param7))
    self)
   (:broadcast
-   (&optional __broadcast)
-   (if __broadcast (setq _broadcast __broadcast)) _broadcast)
+   (&optional (__broadcast :null))
+   (if (not (eq __broadcast :null)) (setq _broadcast __broadcast)) _broadcast)
   (:command
    (&optional __command)
    (if __command (setq _command __command)) _command)
@@ -169,8 +169,8 @@
    (setq _result (round __result))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:result
    (&optional __result)
    (if __result (setq _result __result)) _result)

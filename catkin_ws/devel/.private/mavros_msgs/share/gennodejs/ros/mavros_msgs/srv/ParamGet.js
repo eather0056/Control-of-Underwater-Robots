@@ -52,7 +52,7 @@ class ParamGetRequest {
 
   static getMessageSize(object) {
     let length = 0;
-    length += object.param_id.length;
+    length += _getByteLength(object.param_id);
     return length + 4;
   }
 

@@ -18,6 +18,13 @@
 (intern "*MML_MODERN*" (find-package "MAVROS_MSGS::PLAYTUNEV2"))
 (shadow '*MML_MODERN* (find-package "MAVROS_MSGS::PLAYTUNEV2"))
 (defconstant mavros_msgs::PlayTuneV2::*MML_MODERN* 2)
+
+(defun mavros_msgs::PlayTuneV2-to-symbol (const)
+  (cond
+        ((= const 1) 'mavros_msgs::PlayTuneV2::*QBASIC1_1*)
+        ((= const 2) 'mavros_msgs::PlayTuneV2::*MML_MODERN*)
+        (t nil)))
+
 (defclass mavros_msgs::PlayTuneV2
   :super ros::object
   :slots (_format _tune ))

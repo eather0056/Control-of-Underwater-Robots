@@ -118,7 +118,7 @@ class CameraImageCaptured {
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    length += object.file_url.length;
+    length += _getByteLength(object.file_url);
     return length + 69;
   }
 

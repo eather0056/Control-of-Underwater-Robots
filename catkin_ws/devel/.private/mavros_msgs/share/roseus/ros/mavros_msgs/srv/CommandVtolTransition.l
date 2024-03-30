@@ -26,6 +26,13 @@
 (intern "*STATE_FW*" (find-package "MAVROS_MSGS::COMMANDVTOLTRANSITIONREQUEST"))
 (shadow '*STATE_FW* (find-package "MAVROS_MSGS::COMMANDVTOLTRANSITIONREQUEST"))
 (defconstant mavros_msgs::CommandVtolTransitionRequest::*STATE_FW* 4)
+
+(defun mavros_msgs::CommandVtolTransitionRequest-to-symbol (const)
+  (cond
+        ((= const 3) 'mavros_msgs::CommandVtolTransitionRequest::*STATE_MC*)
+        ((= const 4) 'mavros_msgs::CommandVtolTransitionRequest::*STATE_FW*)
+        (t nil)))
+
 (defclass mavros_msgs::CommandVtolTransitionRequest
   :super ros::object
   :slots (_header _state ))
@@ -93,8 +100,8 @@
    (setq _result (round __result))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:result
    (&optional __result)
    (if __result (setq _result __result)) _result)

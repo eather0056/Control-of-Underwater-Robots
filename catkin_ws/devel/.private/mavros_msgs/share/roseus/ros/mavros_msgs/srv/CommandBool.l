@@ -31,8 +31,8 @@
    (setq _value __value)
    self)
   (:value
-   (&optional __value)
-   (if __value (setq _value __value)) _value)
+   (&optional (__value :null))
+   (if (not (eq __value :null)) (setq _value __value)) _value)
   (:serialization-length
    ()
    (+
@@ -70,8 +70,8 @@
    (setq _result (round __result))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:result
    (&optional __result)
    (if __result (setq _result __result)) _result)

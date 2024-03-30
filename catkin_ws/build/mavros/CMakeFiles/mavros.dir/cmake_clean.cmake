@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "/home/tihan/catkin_ws/devel/.private/mavros/lib/libmavros.pdb"
+  "/home/tihan/catkin_ws/devel/.private/mavros/lib/libmavros.so"
   "CMakeFiles/mavros.dir/src/lib/enum_sensor_orientation.cpp.o"
   "CMakeFiles/mavros.dir/src/lib/enum_to_string.cpp.o"
   "CMakeFiles/mavros.dir/src/lib/ftf_frame_conversions.cpp.o"
@@ -9,8 +11,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/mavros.dir/src/lib/uas_data.cpp.o"
   "CMakeFiles/mavros.dir/src/lib/uas_stringify.cpp.o"
   "CMakeFiles/mavros.dir/src/lib/uas_timesync.cpp.o"
-  "/home/ether/catkin_ws/devel/.private/mavros/lib/libmavros.pdb"
-  "/home/ether/catkin_ws/devel/.private/mavros/lib/libmavros.so"
 )
 
 # Per-language clean rules from dependency scanning.

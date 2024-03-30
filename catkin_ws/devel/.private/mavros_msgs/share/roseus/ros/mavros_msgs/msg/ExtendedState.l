@@ -44,6 +44,21 @@
 (intern "*LANDED_STATE_LANDING*" (find-package "MAVROS_MSGS::EXTENDEDSTATE"))
 (shadow '*LANDED_STATE_LANDING* (find-package "MAVROS_MSGS::EXTENDEDSTATE"))
 (defconstant mavros_msgs::ExtendedState::*LANDED_STATE_LANDING* 4)
+
+(defun mavros_msgs::ExtendedState-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::ExtendedState::*VTOL_STATE_UNDEFINED*)
+        ((= const 1) 'mavros_msgs::ExtendedState::*VTOL_STATE_TRANSITION_TO_FW*)
+        ((= const 2) 'mavros_msgs::ExtendedState::*VTOL_STATE_TRANSITION_TO_MC*)
+        ((= const 3) 'mavros_msgs::ExtendedState::*VTOL_STATE_MC*)
+        ((= const 4) 'mavros_msgs::ExtendedState::*VTOL_STATE_FW*)
+        ((= const 0) 'mavros_msgs::ExtendedState::*LANDED_STATE_UNDEFINED*)
+        ((= const 1) 'mavros_msgs::ExtendedState::*LANDED_STATE_ON_GROUND*)
+        ((= const 2) 'mavros_msgs::ExtendedState::*LANDED_STATE_IN_AIR*)
+        ((= const 3) 'mavros_msgs::ExtendedState::*LANDED_STATE_TAKEOFF*)
+        ((= const 4) 'mavros_msgs::ExtendedState::*LANDED_STATE_LANDING*)
+        (t nil)))
+
 (defclass mavros_msgs::ExtendedState
   :super ros::object
   :slots (_header _vtol_state _landed_state ))

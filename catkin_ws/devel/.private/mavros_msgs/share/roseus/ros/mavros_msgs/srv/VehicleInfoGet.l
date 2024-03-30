@@ -24,6 +24,13 @@
 (intern "*GET_MY_COMPID*" (find-package "MAVROS_MSGS::VEHICLEINFOGETREQUEST"))
 (shadow '*GET_MY_COMPID* (find-package "MAVROS_MSGS::VEHICLEINFOGETREQUEST"))
 (defconstant mavros_msgs::VehicleInfoGetRequest::*GET_MY_COMPID* 0)
+
+(defun mavros_msgs::VehicleInfoGetRequest-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::VehicleInfoGetRequest::*GET_MY_SYSID*)
+        ((= const 0) 'mavros_msgs::VehicleInfoGetRequest::*GET_MY_COMPID*)
+        (t nil)))
+
 (defclass mavros_msgs::VehicleInfoGetRequest
   :super ros::object
   :slots (_sysid _compid _get_all ))
@@ -47,8 +54,8 @@
    (&optional __compid)
    (if __compid (setq _compid __compid)) _compid)
   (:get_all
-   (&optional __get_all)
-   (if __get_all (setq _get_all __get_all)) _get_all)
+   (&optional (__get_all :null))
+   (if (not (eq __get_all :null)) (setq _get_all __get_all)) _get_all)
   (:serialization-length
    ()
    (+
@@ -91,15 +98,15 @@
   (:init
    (&key
     ((:success __success) nil)
-    ((:vehicles __vehicles) (let (r) (dotimes (i 0) (push (instance mavros_msgs::VehicleInfo :init) r)) r))
+    ((:vehicles __vehicles) ())
     )
    (send-super :init)
    (setq _success __success)
    (setq _vehicles __vehicles)
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:vehicles
    (&rest __vehicles)
    (if (keywordp (car __vehicles))

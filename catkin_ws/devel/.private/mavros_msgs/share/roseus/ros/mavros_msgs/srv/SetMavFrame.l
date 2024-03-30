@@ -84,6 +84,33 @@
 (intern "*FRAME_LOCAL_FLU*" (find-package "MAVROS_MSGS::SETMAVFRAMEREQUEST"))
 (shadow '*FRAME_LOCAL_FLU* (find-package "MAVROS_MSGS::SETMAVFRAMEREQUEST"))
 (defconstant mavros_msgs::SetMavFrameRequest::*FRAME_LOCAL_FLU* 21)
+
+(defun mavros_msgs::SetMavFrameRequest-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::SetMavFrameRequest::*FRAME_GLOBAL*)
+        ((= const 1) 'mavros_msgs::SetMavFrameRequest::*FRAME_LOCAL_NED*)
+        ((= const 2) 'mavros_msgs::SetMavFrameRequest::*FRAME_MISSION*)
+        ((= const 3) 'mavros_msgs::SetMavFrameRequest::*FRAME_GLOBAL_RELATIVE_ALT*)
+        ((= const 4) 'mavros_msgs::SetMavFrameRequest::*FRAME_LOCAL_ENU*)
+        ((= const 5) 'mavros_msgs::SetMavFrameRequest::*FRAME_GLOBAL_INT*)
+        ((= const 6) 'mavros_msgs::SetMavFrameRequest::*FRAME_GLOBAL_RELATIVE_ALT_INT*)
+        ((= const 7) 'mavros_msgs::SetMavFrameRequest::*FRAME_LOCAL_OFFSET_NED*)
+        ((= const 8) 'mavros_msgs::SetMavFrameRequest::*FRAME_BODY_NED*)
+        ((= const 9) 'mavros_msgs::SetMavFrameRequest::*FRAME_BODY_OFFSET_NED*)
+        ((= const 10) 'mavros_msgs::SetMavFrameRequest::*FRAME_GLOBAL_TERRAIN_ALT*)
+        ((= const 11) 'mavros_msgs::SetMavFrameRequest::*FRAME_GLOBAL_TERRAIN_ALT_INT*)
+        ((= const 12) 'mavros_msgs::SetMavFrameRequest::*FRAME_BODY_FRD*)
+        ((= const 13) 'mavros_msgs::SetMavFrameRequest::*FRAME_RESERVED_13*)
+        ((= const 14) 'mavros_msgs::SetMavFrameRequest::*FRAME_RESERVED_14*)
+        ((= const 15) 'mavros_msgs::SetMavFrameRequest::*FRAME_RESERVED_15*)
+        ((= const 16) 'mavros_msgs::SetMavFrameRequest::*FRAME_RESERVED_16*)
+        ((= const 17) 'mavros_msgs::SetMavFrameRequest::*FRAME_RESERVED_17*)
+        ((= const 18) 'mavros_msgs::SetMavFrameRequest::*FRAME_RESERVED_18*)
+        ((= const 19) 'mavros_msgs::SetMavFrameRequest::*FRAME_RESERVED_19*)
+        ((= const 20) 'mavros_msgs::SetMavFrameRequest::*FRAME_LOCAL_FRD*)
+        ((= const 21) 'mavros_msgs::SetMavFrameRequest::*FRAME_LOCAL_FLU*)
+        (t nil)))
+
 (defclass mavros_msgs::SetMavFrameRequest
   :super ros::object
   :slots (_mav_frame ))
@@ -134,8 +161,8 @@
    (setq _success __success)
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:serialization-length
    ()
    (+

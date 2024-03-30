@@ -259,8 +259,8 @@ class VehicleInfo {
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
-    length += object.mode.length;
-    length += object.flight_custom_version.length;
+    length += _getByteLength(object.mode);
+    length += _getByteLength(object.flight_custom_version);
     return length + 59;
   }
 

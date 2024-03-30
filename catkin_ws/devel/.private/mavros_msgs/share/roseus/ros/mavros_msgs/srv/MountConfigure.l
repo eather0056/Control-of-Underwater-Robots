@@ -44,6 +44,19 @@
 (intern "*INPUT_ANGLE_ABSOLUTE_FRAME*" (find-package "MAVROS_MSGS::MOUNTCONFIGUREREQUEST"))
 (shadow '*INPUT_ANGLE_ABSOLUTE_FRAME* (find-package "MAVROS_MSGS::MOUNTCONFIGUREREQUEST"))
 (defconstant mavros_msgs::MountConfigureRequest::*INPUT_ANGLE_ABSOLUTE_FRAME* 2)
+
+(defun mavros_msgs::MountConfigureRequest-to-symbol (const)
+  (cond
+        ((= const 0) 'mavros_msgs::MountConfigureRequest::*MODE_RETRACT*)
+        ((= const 1) 'mavros_msgs::MountConfigureRequest::*MODE_NEUTRAL*)
+        ((= const 2) 'mavros_msgs::MountConfigureRequest::*MODE_MAVLINK_TARGETING*)
+        ((= const 3) 'mavros_msgs::MountConfigureRequest::*MODE_RC_TARGETING*)
+        ((= const 4) 'mavros_msgs::MountConfigureRequest::*MODE_GPS_POINT*)
+        ((= const 0) 'mavros_msgs::MountConfigureRequest::*INPUT_ANGLE_BODY_FRAME*)
+        ((= const 1) 'mavros_msgs::MountConfigureRequest::*INPUT_ANGULAR_RATE*)
+        ((= const 2) 'mavros_msgs::MountConfigureRequest::*INPUT_ANGLE_ABSOLUTE_FRAME*)
+        (t nil)))
+
 (defclass mavros_msgs::MountConfigureRequest
   :super ros::object
   :slots (_header _mode _stabilize_roll _stabilize_pitch _stabilize_yaw _roll_input _pitch_input _yaw_input ))
@@ -81,14 +94,14 @@
    (&optional __mode)
    (if __mode (setq _mode __mode)) _mode)
   (:stabilize_roll
-   (&optional __stabilize_roll)
-   (if __stabilize_roll (setq _stabilize_roll __stabilize_roll)) _stabilize_roll)
+   (&optional (__stabilize_roll :null))
+   (if (not (eq __stabilize_roll :null)) (setq _stabilize_roll __stabilize_roll)) _stabilize_roll)
   (:stabilize_pitch
-   (&optional __stabilize_pitch)
-   (if __stabilize_pitch (setq _stabilize_pitch __stabilize_pitch)) _stabilize_pitch)
+   (&optional (__stabilize_pitch :null))
+   (if (not (eq __stabilize_pitch :null)) (setq _stabilize_pitch __stabilize_pitch)) _stabilize_pitch)
   (:stabilize_yaw
-   (&optional __stabilize_yaw)
-   (if __stabilize_yaw (setq _stabilize_yaw __stabilize_yaw)) _stabilize_yaw)
+   (&optional (__stabilize_yaw :null))
+   (if (not (eq __stabilize_yaw :null)) (setq _stabilize_yaw __stabilize_yaw)) _stabilize_yaw)
   (:roll_input
    (&optional __roll_input)
    (if __roll_input (setq _roll_input __roll_input)) _roll_input)
@@ -177,8 +190,8 @@
    (setq _result (round __result))
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:result
    (&optional __result)
    (if __result (setq _result __result)) _result)

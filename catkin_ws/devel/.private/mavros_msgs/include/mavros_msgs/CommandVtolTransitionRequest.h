@@ -110,16 +110,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::mavros_msgs::CommandVtolTransitionRequest_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::mavros_msgs::CommandVtolTransitionRequest_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::mavros_msgs::CommandVtolTransitionRequest_<ContainerAllocator> >
   : TrueType
   { };
@@ -127,6 +117,16 @@ struct IsMessage< ::mavros_msgs::CommandVtolTransitionRequest_<ContainerAllocato
 template <class ContainerAllocator>
 struct IsMessage< ::mavros_msgs::CommandVtolTransitionRequest_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::mavros_msgs::CommandVtolTransitionRequest_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::mavros_msgs::CommandVtolTransitionRequest_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

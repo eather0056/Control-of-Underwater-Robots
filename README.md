@@ -18,7 +18,43 @@ The BlueROV is an open-source underwater vehicle designed for researchers and ho
 - **Hardware**: BlueROV platform with integrated sensors and thrusters.
 - **Environment**: COSMER Lab water tank, University of Toulon.
 - **Control Algorithms**: Implemented in Python/C++ (as applicable).
+- 
+### ROS and Dependencies Installation
+For Ubuntu 18.04 with ROS Melodic (replace `melodic` with `noetic` for Ubuntu 20.04 and `python` with `python3`):
+```bash
+sudo apt-get install -y cmake python-catkin-pkg python-empy python-nose python-setuptools libgtest-dev build-essential openssh-server
+sudo apt-get install python-wstool python-rosinstall-generator python-catkin-tools
+sudo apt-get install ros-melodic-joy
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws
+catkin init
+```
 
+### MAVROS Installation
+- **Local Installation** (recommended): Copy the `autonomous_rov`, `mavros`, and `mavlink` packages provided in the TGZ files into `~/catkin_ws/src`.
+
+  Then build the packages:
+  ```bash
+  catkin build
+  # For verbose output or if encountering issues, use:
+  catkin build -j1 -v
+  ```
+
+- **Network Installation**: Alternatively, you can install MAVROS from the network, but ensure compatibility with the embedded version on BlueROV.
+  ```bash
+  cd ~/catkin_ws
+  catkin init
+  wstool init ~/catkin_ws/src
+  rosinstall_generator --upstream mavros | tee /tmp/mavros.rosinstall
+  rosinstall_generator mavlink | tee -a /tmp/mavros.rosinstall
+  wstool merge -t src /tmp/mavros.rosinstall
+  wstool update -t src
+  rosdep install --from-paths src --ignore-src --rosdistro melodic -y # Replace 'melodic' with 'noetic' for Ubuntu 20.04
+  ```
+
+### Modifying `OverrideRCIn.msg`
+For compatibility, modify the `OverrideRCIn.msg` in `~/catkin_ws/src/mavros/mavros_msgs` as follows:
+- Change `uint16[18] channels` to `uint16[8] channels`.
 ## Experiments
 - **P Controllers**: Initial implementation of proportional control for depth and yaw.
 - **PI Controllers**: Integration of the integral component to mitigate steady-state errors.
